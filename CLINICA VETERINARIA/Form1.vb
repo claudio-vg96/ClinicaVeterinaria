@@ -141,7 +141,15 @@ Public Class FRM_PRODUCTOS
     End Sub
 
     Private Sub LST_PRODUCTOS_SelectedIndexChanged(sender As Object, e As EventArgs) Handles LST_PRODUCTOS.SelectedIndexChanged
-        'TXT_ID.Text = LST_PRODUCTOS.Items()
-        MsgBox(LST_PRODUCTOS.Items(0)(0))
+        ID = Trim(LST_PRODUCTOS.SelectedItem.Substring(0, 5))
+        NOMBRE = Trim(LST_PRODUCTOS.SelectedItem.Substring(5, 40))
+        PRECIO = Trim(LST_PRODUCTOS.SelectedItem.Substring(46, 7))
+        REAL = Val(Trim(LST_PRODUCTOS.SelectedItem.Substring(54, 4)))
+        CRITICO = Val(Trim(LST_PRODUCTOS.SelectedItem.Substring(55, 3)))
+        TXT_ID.Text = ID
+        TXT_NOMBRE.Text = NOMBRE
+        TXT_PRECIO.Text = PRECIO
+        NUM_STOCK_REAL.Value = REAL
+        NUM_STOCK_CRITICO.Value = CRITICO
     End Sub
 End Class
