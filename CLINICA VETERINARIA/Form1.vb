@@ -151,5 +151,25 @@ Public Class FRM_PRODUCTOS
         TXT_PRECIO.Text = PRECIO
         NUM_STOCK_REAL.Value = REAL
         NUM_STOCK_CRITICO.Value = CRITICO
+        BTN_MODIFICAR.Enabled = True
+        BTN_ELIMINAR.Enabled = True
+    End Sub
+
+    Private Sub BTN_MODIFICAR_Click(sender As Object, e As EventArgs) Handles BTN_MODIFICAR.Click
+        TXT_NOMBRE.Enabled = True
+        BTN_ACEPTAR.Enabled = True
+        BTN_CANCELAR.Enabled = True
+    End Sub
+
+    Private Sub BTN_ELIMINAR_Click(sender As Object, e As EventArgs) Handles BTN_ELIMINAR.Click
+        If LST_PRODUCTOS.SelectedIndex > -1 Then
+            resultado = MsgBox("¿Esta seguro que desea eliminar?", vbOKCancel, "CONFIRMACION")
+            If resultado = vbOK Then
+                LST_PRODUCTOS.Items.RemoveAt(LST_PRODUCTOS.SelectedIndex)
+            Else
+                MsgBox("HE PULSADO BOTON CANCELAR")
+                Exit Sub
+            End If
+        End If
     End Sub
 End Class

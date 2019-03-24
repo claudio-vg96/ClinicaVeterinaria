@@ -49,10 +49,11 @@ Partial Class FRM_PRODUCTOS
         '
         Me.LST_PRODUCTOS.Font = New System.Drawing.Font("Consolas", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LST_PRODUCTOS.FormattingEnabled = True
-        Me.LST_PRODUCTOS.ItemHeight = 15
-        Me.LST_PRODUCTOS.Location = New System.Drawing.Point(32, 26)
+        Me.LST_PRODUCTOS.ItemHeight = 19
+        Me.LST_PRODUCTOS.Location = New System.Drawing.Point(43, 32)
+        Me.LST_PRODUCTOS.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.LST_PRODUCTOS.Name = "LST_PRODUCTOS"
-        Me.LST_PRODUCTOS.Size = New System.Drawing.Size(764, 199)
+        Me.LST_PRODUCTOS.Size = New System.Drawing.Size(1017, 232)
         Me.LST_PRODUCTOS.TabIndex = 0
         '
         'GroupBox1
@@ -69,9 +70,11 @@ Partial Class FRM_PRODUCTOS
         Me.GroupBox1.Controls.Add(Me.TXT_PRECIO)
         Me.GroupBox1.Controls.Add(Me.TXT_NOMBRE)
         Me.GroupBox1.Controls.Add(Me.TXT_ID)
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 259)
+        Me.GroupBox1.Location = New System.Drawing.Point(16, 319)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(784, 218)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Size = New System.Drawing.Size(1045, 268)
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "v"
@@ -79,9 +82,10 @@ Partial Class FRM_PRODUCTOS
         'BTN_CANCELAR
         '
         Me.BTN_CANCELAR.Enabled = False
-        Me.BTN_CANCELAR.Location = New System.Drawing.Point(567, 140)
+        Me.BTN_CANCELAR.Location = New System.Drawing.Point(756, 172)
+        Me.BTN_CANCELAR.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.BTN_CANCELAR.Name = "BTN_CANCELAR"
-        Me.BTN_CANCELAR.Size = New System.Drawing.Size(91, 39)
+        Me.BTN_CANCELAR.Size = New System.Drawing.Size(121, 48)
         Me.BTN_CANCELAR.TabIndex = 6
         Me.BTN_CANCELAR.Text = "&CANCELAR"
         Me.BTN_CANCELAR.UseVisualStyleBackColor = True
@@ -89,9 +93,10 @@ Partial Class FRM_PRODUCTOS
         'BTN_ACEPTAR
         '
         Me.BTN_ACEPTAR.Enabled = False
-        Me.BTN_ACEPTAR.Location = New System.Drawing.Point(440, 140)
+        Me.BTN_ACEPTAR.Location = New System.Drawing.Point(587, 172)
+        Me.BTN_ACEPTAR.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.BTN_ACEPTAR.Name = "BTN_ACEPTAR"
-        Me.BTN_ACEPTAR.Size = New System.Drawing.Size(91, 39)
+        Me.BTN_ACEPTAR.Size = New System.Drawing.Size(121, 48)
         Me.BTN_ACEPTAR.TabIndex = 5
         Me.BTN_ACEPTAR.Text = "&ACEPTAR"
         Me.BTN_ACEPTAR.UseVisualStyleBackColor = True
@@ -99,130 +104,144 @@ Partial Class FRM_PRODUCTOS
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(24, 166)
+        Me.Label5.Location = New System.Drawing.Point(32, 204)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(89, 13)
+        Me.Label5.Size = New System.Drawing.Size(113, 17)
         Me.Label5.TabIndex = 9
         Me.Label5.Text = "STOCK CRITICO"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(24, 132)
+        Me.Label4.Location = New System.Drawing.Point(32, 162)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(74, 13)
+        Me.Label4.Size = New System.Drawing.Size(95, 17)
         Me.Label4.TabIndex = 8
         Me.Label4.Text = "STOCK REAL"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(24, 97)
+        Me.Label3.Location = New System.Drawing.Point(32, 119)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(47, 13)
+        Me.Label3.Size = New System.Drawing.Size(59, 17)
         Me.Label3.TabIndex = 7
         Me.Label3.Text = "PRECIO"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(24, 62)
+        Me.Label2.Location = New System.Drawing.Point(32, 76)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(57, 13)
+        Me.Label2.Size = New System.Drawing.Size(72, 17)
         Me.Label2.TabIndex = 6
         Me.Label2.Text = "NOMBRE:"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(24, 32)
+        Me.Label1.Location = New System.Drawing.Point(32, 39)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(18, 13)
+        Me.Label1.Size = New System.Drawing.Size(21, 17)
         Me.Label1.TabIndex = 5
         Me.Label1.Text = "ID"
         '
         'NUM_STOCK_CRITICO
         '
         Me.NUM_STOCK_CRITICO.Enabled = False
-        Me.NUM_STOCK_CRITICO.Location = New System.Drawing.Point(119, 164)
+        Me.NUM_STOCK_CRITICO.Location = New System.Drawing.Point(159, 202)
+        Me.NUM_STOCK_CRITICO.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.NUM_STOCK_CRITICO.Name = "NUM_STOCK_CRITICO"
-        Me.NUM_STOCK_CRITICO.Size = New System.Drawing.Size(74, 20)
+        Me.NUM_STOCK_CRITICO.Size = New System.Drawing.Size(99, 22)
         Me.NUM_STOCK_CRITICO.TabIndex = 4
         '
         'NUM_STOCK_REAL
         '
         Me.NUM_STOCK_REAL.Enabled = False
-        Me.NUM_STOCK_REAL.Location = New System.Drawing.Point(119, 130)
+        Me.NUM_STOCK_REAL.Location = New System.Drawing.Point(159, 160)
+        Me.NUM_STOCK_REAL.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.NUM_STOCK_REAL.Name = "NUM_STOCK_REAL"
-        Me.NUM_STOCK_REAL.Size = New System.Drawing.Size(74, 20)
+        Me.NUM_STOCK_REAL.Size = New System.Drawing.Size(99, 22)
         Me.NUM_STOCK_REAL.TabIndex = 3
         '
         'TXT_PRECIO
         '
         Me.TXT_PRECIO.Enabled = False
-        Me.TXT_PRECIO.Location = New System.Drawing.Point(119, 94)
+        Me.TXT_PRECIO.Location = New System.Drawing.Point(159, 116)
+        Me.TXT_PRECIO.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TXT_PRECIO.Name = "TXT_PRECIO"
-        Me.TXT_PRECIO.Size = New System.Drawing.Size(100, 20)
+        Me.TXT_PRECIO.Size = New System.Drawing.Size(132, 22)
         Me.TXT_PRECIO.TabIndex = 2
         '
         'TXT_NOMBRE
         '
         Me.TXT_NOMBRE.Enabled = False
-        Me.TXT_NOMBRE.Location = New System.Drawing.Point(119, 59)
+        Me.TXT_NOMBRE.Location = New System.Drawing.Point(159, 73)
+        Me.TXT_NOMBRE.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TXT_NOMBRE.Name = "TXT_NOMBRE"
-        Me.TXT_NOMBRE.Size = New System.Drawing.Size(278, 20)
+        Me.TXT_NOMBRE.Size = New System.Drawing.Size(369, 22)
         Me.TXT_NOMBRE.TabIndex = 1
         '
         'TXT_ID
         '
         Me.TXT_ID.Enabled = False
-        Me.TXT_ID.Location = New System.Drawing.Point(119, 25)
+        Me.TXT_ID.Location = New System.Drawing.Point(159, 31)
+        Me.TXT_ID.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TXT_ID.MaxLength = 5
         Me.TXT_ID.Name = "TXT_ID"
-        Me.TXT_ID.Size = New System.Drawing.Size(74, 20)
+        Me.TXT_ID.Size = New System.Drawing.Size(97, 22)
         Me.TXT_ID.TabIndex = 0
         '
         'BTN_NUEVO
         '
-        Me.BTN_NUEVO.Location = New System.Drawing.Point(63, 483)
+        Me.BTN_NUEVO.Location = New System.Drawing.Point(84, 594)
+        Me.BTN_NUEVO.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.BTN_NUEVO.Name = "BTN_NUEVO"
-        Me.BTN_NUEVO.Size = New System.Drawing.Size(142, 48)
+        Me.BTN_NUEVO.Size = New System.Drawing.Size(189, 59)
         Me.BTN_NUEVO.TabIndex = 7
         Me.BTN_NUEVO.Text = "&NUEVO"
         Me.BTN_NUEVO.UseVisualStyleBackColor = True
         '
         'BTN_MODIFICAR
         '
-        Me.BTN_MODIFICAR.Location = New System.Drawing.Point(248, 483)
+        Me.BTN_MODIFICAR.Location = New System.Drawing.Point(331, 594)
+        Me.BTN_MODIFICAR.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.BTN_MODIFICAR.Name = "BTN_MODIFICAR"
-        Me.BTN_MODIFICAR.Size = New System.Drawing.Size(142, 48)
+        Me.BTN_MODIFICAR.Size = New System.Drawing.Size(189, 59)
         Me.BTN_MODIFICAR.TabIndex = 8
         Me.BTN_MODIFICAR.Text = "&MODIFICAR"
         Me.BTN_MODIFICAR.UseVisualStyleBackColor = True
         '
         'BTN_ELIMINAR
         '
-        Me.BTN_ELIMINAR.Location = New System.Drawing.Point(432, 483)
+        Me.BTN_ELIMINAR.Location = New System.Drawing.Point(576, 594)
+        Me.BTN_ELIMINAR.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.BTN_ELIMINAR.Name = "BTN_ELIMINAR"
-        Me.BTN_ELIMINAR.Size = New System.Drawing.Size(142, 48)
+        Me.BTN_ELIMINAR.Size = New System.Drawing.Size(189, 59)
         Me.BTN_ELIMINAR.TabIndex = 9
         Me.BTN_ELIMINAR.Text = "&ELIMINAR"
         Me.BTN_ELIMINAR.UseVisualStyleBackColor = True
         '
         'BTN_SALIR
         '
-        Me.BTN_SALIR.Location = New System.Drawing.Point(613, 483)
+        Me.BTN_SALIR.Location = New System.Drawing.Point(817, 594)
+        Me.BTN_SALIR.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.BTN_SALIR.Name = "BTN_SALIR"
-        Me.BTN_SALIR.Size = New System.Drawing.Size(142, 48)
+        Me.BTN_SALIR.Size = New System.Drawing.Size(189, 59)
         Me.BTN_SALIR.TabIndex = 10
         Me.BTN_SALIR.Text = "&SALIR"
         Me.BTN_SALIR.UseVisualStyleBackColor = True
         '
         'FRM_PRODUCTOS
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(808, 571)
+        Me.ClientSize = New System.Drawing.Size(1077, 703)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.LST_PRODUCTOS)
         Me.Controls.Add(Me.BTN_NUEVO)
@@ -230,6 +249,7 @@ Partial Class FRM_PRODUCTOS
         Me.Controls.Add(Me.BTN_SALIR)
         Me.Controls.Add(Me.BTN_ELIMINAR)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "FRM_PRODUCTOS"
