@@ -196,4 +196,50 @@ Public Class FRM_PRODUCTOS
             End If
         End If
     End Sub
+
+    Private Sub GroupBox1_Enter(sender As Object, e As EventArgs) Handles GroupBox1.Enter
+
+    End Sub
+
+    Private Sub FRM_PRODUCTOS_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim ARCHIVO As New System.IO.StreamReader("PRODUCTOS.TXT")
+        Dim REGISTRO As String
+        Dim ELEMENTO() As String
+        REGISTRO = ARCHIVO.ReadLine()
+        While REGISTRO <> ""
+            ELEMENTO = REGISTRO.Split(";")
+            ID = ELEMENTO(0).PadRight(5)
+            NOMBRE = ELEMENTO(1).PadRight(40)
+            PRECIO = ELEMENTO(2).PadRight(12)
+            REAL = ELEMENTO(3).PadRight(3)
+            CRITICO = ELEMENTO(4).PadRight(3)
+            LST_PRODUCTOS.Items.Add(ID & " " & NOMBRE & " " & PRECIO & " " & REAL & " " & CRITICO)
+            REGISTRO = ARCHIVO.ReadLine()
+        End While
+        ARCHIVO.Close()
+
+    End Sub
+
+    Private Sub FRM_PRODUCTOS_MouseMove(sender As Object, e As MouseEventArgs) Handles Me.MouseMove
+    End Sub
+
+    Private Sub Label7_Click(sender As Object, e As EventArgs) Handles Label7.Click
+
+    End Sub
+
+    Private Sub Label8_Click(sender As Object, e As EventArgs) Handles Label8.Click
+
+    End Sub
+
+    Private Sub Label11_Click(sender As Object, e As EventArgs) Handles Label11.Click
+
+    End Sub
+
+    Private Sub Label10_Click(sender As Object, e As EventArgs) Handles Label10.Click
+
+    End Sub
+
+    Private Sub TextBox3_TextChanged(sender As Object, e As EventArgs) Handles TextBox3.TextChanged
+
+    End Sub
 End Class
