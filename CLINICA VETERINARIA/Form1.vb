@@ -69,23 +69,29 @@ Public Class FRM_PRODUCTOS
             End If
             ID = TXT_ID.Text.PadRight(5)
             NOMBRE = TXT_NOMBRE.Text.PadRight(40)
-            PRECIO = TXT_PRECIO.Text.PadRight(7)
+            PRECIO = TXT_PRECIO.Text.PadRight(12)
             REAL = NUM_STOCK_REAL.Value.ToString.PadRight(3)
             CRITICO = NUM_STOCK_CRITICO.Value.ToString.PadRight(3)
-            LST_PRODUCTOS.Items.Add(ID & " " & NOMBRE & " " & PRECIO & " " & REAL & " " & CRITICO)
-            BTN_ACEPTAR.Text = "&ACEPTAR"
-            TXT_NOMBRE.Text() = ""
-            TXT_PRECIO.Text = ""
-            NUM_STOCK_REAL.Value = 0
-            NUM_STOCK_CRITICO.Value = 0
-            TXT_ID.Enabled = True
-            TXT_NOMBRE.Enabled = False
-            TXT_PRECIO.Enabled = False
-            NUM_STOCK_REAL.Enabled = False
-            NUM_STOCK_CRITICO.Enabled = False
-            TXT_ID.SelectAll()
-            TXT_ID.Focus()
+            If Me.Text = "NUEVO PRODUCTO" Then
+                LST_PRODUCTOS.Items.Add(ID & " " & NOMBRE & " " & PRECIO & " " & REAL & " " & CRITICO)
+                BTN_ACEPTAR.Text = "&ACEPTAR"
+                TXT_NOMBRE.Text() = ""
+                TXT_PRECIO.Text = ""
+                NUM_STOCK_REAL.Value = 0
+                NUM_STOCK_CRITICO.Value = 0
+                TXT_ID.Enabled = True
+                TXT_NOMBRE.Enabled = False
+                TXT_PRECIO.Enabled = False
+                NUM_STOCK_REAL.Enabled = False
+                NUM_STOCK_CRITICO.Enabled = False
+                TXT_ID.SelectAll()
+                Me.AcceptButton = BTN_ACEPTAR
+                TXT_ID.Focus()
 
+            Else
+                LST_PRODUCTOS.Items.Item(LST_PRODUCTOS.SelectedIndex) = ID & " " & NOMBRE & " " & PRECIO & " " & REAL & " " & CRITICO
+                TXT_NOMBRE.Focus()
+            End If
         End If
 
     End Sub
@@ -141,24 +147,42 @@ Public Class FRM_PRODUCTOS
     End Sub
 
     Private Sub LST_PRODUCTOS_SelectedIndexChanged(sender As Object, e As EventArgs) Handles LST_PRODUCTOS.SelectedIndexChanged
-        ID = Trim(LST_PRODUCTOS.SelectedItem.Substring(0, 5))
-        NOMBRE = Trim(LST_PRODUCTOS.SelectedItem.Substring(5, 40))
-        PRECIO = Trim(LST_PRODUCTOS.SelectedItem.Substring(46, 7))
-        REAL = Val(Trim(LST_PRODUCTOS.SelectedItem.Substring(54, 4)))
-        CRITICO = Val(Trim(LST_PRODUCTOS.SelectedItem.Substring(55, 3)))
-        TXT_ID.Text = ID
-        TXT_NOMBRE.Text = NOMBRE
-        TXT_PRECIO.Text = PRECIO
-        NUM_STOCK_REAL.Value = REAL
-        NUM_STOCK_CRITICO.Value = CRITICO
-        BTN_MODIFICAR.Enabled = True
-        BTN_ELIMINAR.Enabled = True
+        If LST_PRODUCTOS.SelectedIndex >= 0 Then
+            ID = Trim(LST_PRODUCTOS.SelectedItem.Substring(0, 5))
+            NOMBRE = Trim(LST_PRODUCTOS.SelectedItem.Substring(6, 40))
+            PRECIO = Trim(LST_PRODUCTOS.SelectedItem.Substring(47, 12))
+            REAL = Val(Trim(LST_PRODUCTOS.SelectedItem.Substring(60, 3)))
+            CRITICO = Val(Trim(LST_PRODUCTOS.SelectedItem.Substring(64, 3)))
+            TXT_ID.Text = ID
+            TXT_NOMBRE.Text = NOMBRE
+            TXT_PRECIO.Text = PRECIO
+            NUM_STOCK_REAL.Value = REAL
+            NUM_STOCK_CRITICO.Value = CRITICO
+            BTN_MODIFICAR.Enabled = True
+            BTN_ELIMINAR.Enabled = True
+        End If
     End Sub
 
     Private Sub BTN_MODIFICAR_Click(sender As Object, e As EventArgs) Handles BTN_MODIFICAR.Click
+        If TXT_ID.Text = " " Then
+            MsgBox("Error, debe seleccionar un elemento del listado.")
+            LST_PRODUCTOS.Focus()
+            Exit Sub
+        End If
+        Me.Text = "Modificar Producto"
+        TXT_ID.Enabled = False
         TXT_NOMBRE.Enabled = True
+        TXT_PRECIO.Enabled = True
         BTN_ACEPTAR.Enabled = True
         BTN_CANCELAR.Enabled = True
+        NUM_STOCK_REAL.Enabled = True
+        NUM_STOCK_CRITICO.Enabled = True
+        TXT_NOMBRE.SelectAll()
+        TXT_NOMBRE.Focus()
+        BTN_NUEVO.Enabled = False
+        BTN_MODIFICAR.Enabled = False
+        BTN_ELIMINAR.Enabled = False
+        BTN_ACEPTAR.Text = "&GUARDAR"
     End Sub
 
     Private Sub BTN_ELIMINAR_Click(sender As Object, e As EventArgs) Handles BTN_ELIMINAR.Click

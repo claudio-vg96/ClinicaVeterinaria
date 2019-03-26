@@ -22,3 +22,15 @@ C:\Users\Claudio Villarroel G\Source\Repos\claudio-vg96\ClinicaVeterinaria\CLINI
 C:\Users\Claudio Villarroel G\Source\Repos\claudio-vg96\ClinicaVeterinaria\CLINICA VETERINARIA\obj\Debug\CLINICA VETERINARIA.exe
 C:\Users\Claudio Villarroel G\Source\Repos\claudio-vg96\ClinicaVeterinaria\CLINICA VETERINARIA\obj\Debug\CLINICA VETERINARIA.xml
 C:\Users\Claudio Villarroel G\Source\Repos\claudio-vg96\ClinicaVeterinaria\CLINICA VETERINARIA\obj\Debug\CLINICA VETERINARIA.pdb
+D:\POE\ClinicaVeterinaria-master\CLINICA VETERINARIA\bin\Debug\CLINICA VETERINARIA.exe.config
+D:\POE\ClinicaVeterinaria-master\CLINICA VETERINARIA\bin\Debug\CLINICA VETERINARIA.exe
+D:\POE\ClinicaVeterinaria-master\CLINICA VETERINARIA\bin\Debug\CLINICA VETERINARIA.pdb
+D:\POE\ClinicaVeterinaria-master\CLINICA VETERINARIA\bin\Debug\CLINICA VETERINARIA.xml
+D:\POE\ClinicaVeterinaria-master\CLINICA VETERINARIA\obj\Debug\CLINICA VETERINARIA.vbprojResolveAssemblyReference.cache
+D:\POE\ClinicaVeterinaria-master\CLINICA VETERINARIA\obj\Debug\CLINICA_VETERINARIA.FRM_PRODUCTOS.resources
+D:\POE\ClinicaVeterinaria-master\CLINICA VETERINARIA\obj\Debug\CLINICA_VETERINARIA.Resources.resources
+D:\POE\ClinicaVeterinaria-master\CLINICA VETERINARIA\obj\Debug\CLINICA VETERINARIA.vbproj.GenerateResource.Cache
+D:\POE\ClinicaVeterinaria-master\CLINICA VETERINARIA\obj\Debug\CLINICA VETERINARIA.vbproj.CoreCompileInputs.cache
+D:\POE\ClinicaVeterinaria-master\CLINICA VETERINARIA\obj\Debug\CLINICA VETERINARIA.exe
+D:\POE\ClinicaVeterinaria-master\CLINICA VETERINARIA\obj\Debug\CLINICA VETERINARIA.xml
+D:\POE\ClinicaVeterinaria-master\CLINICA VETERINARIA\obj\Debug\CLINICA VETERINARIA.pdb
