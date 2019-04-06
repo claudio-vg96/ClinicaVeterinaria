@@ -67,15 +67,10 @@ Public Class FRM_PRODUCTOS
                 TXT_NOMBRE.Focus()
                 Exit Sub
             End If
-            ID = TXT_ID.Text.PadRight(5)
-            NOMBRE = TXT_NOMBRE.Text.PadRight(40)
-            PRECIO = TXT_PRECIO.Text.PadRight(12)
-            REAL = NUM_STOCK_REAL.Value.ToString.PadRight(3)
-            CRITICO = NUM_STOCK_CRITICO.Value.ToString.PadRight(3)
             If Me.Text = "NUEVO PRODUCTO" Then
-                LST_PRODUCTOS.Items.Add(ID & " " & NOMBRE & " " & PRECIO & " " & REAL & " " & CRITICO)
+                LST_PRODUCTOS.Items.Add(FormatoItem(TXT_ID.Text, TXT_NOMBRE.Text, TXT_PRECIO.Text, NUM_STOCK_REAL.Value, NUM_STOCK_CRITICO.Value))
                 BTN_ACEPTAR.Text = "&ACEPTAR"
-                TXT_NOMBRE.Text() = ""
+                TXT_NOMBRE.Text = ""
                 TXT_PRECIO.Text = ""
                 NUM_STOCK_REAL.Value = 0
                 NUM_STOCK_CRITICO.Value = 0
@@ -87,13 +82,11 @@ Public Class FRM_PRODUCTOS
                 TXT_ID.SelectAll()
                 Me.AcceptButton = BTN_ACEPTAR
                 TXT_ID.Focus()
-
             Else
-                LST_PRODUCTOS.Items.Item(LST_PRODUCTOS.SelectedIndex) = ID & " " & NOMBRE & " " & PRECIO & " " & REAL & " " & CRITICO
+                LST_PRODUCTOS.Items.Item(LST_PRODUCTOS.SelectedIndex) = FormatoItem(TXT_ID.Text, TXT_NOMBRE.Text, TXT_PRECIO.Text, NUM_STOCK_REAL.Value, NUM_STOCK_CRITICO.Value)
                 TXT_NOMBRE.Focus()
             End If
         End If
-
     End Sub
 
     Private Sub BTN_CANCELAR_Click(sender As Object, e As EventArgs) Handles BTN_CANCELAR.Click
@@ -118,20 +111,6 @@ Public Class FRM_PRODUCTOS
         BTN_NUEVO.Focus()
     End Sub
 
-    Private Sub BTN_SALIR_Click(sender As Object, e As EventArgs) Handles BTN_SALIR.Click
-        Me.Close()
-    End Sub
-
-    Private Sub TXT_NOMBRE_TextChanged(sender As Object, e As EventArgs) Handles TXT_NOMBRE.TextChanged
-    End Sub
-
-    Private Sub TXT_NOMBRE_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TXT_NOMBRE.KeyPress
-    End Sub
-
-    Private Sub TXT_PRECIO_TextChanged(sender As Object, e As EventArgs) Handles TXT_PRECIO.TextChanged
-
-    End Sub
-
     Private Sub TXT_PRECIO_LostFocus(sender As Object, e As EventArgs) Handles TXT_PRECIO.LostFocus
         TXT_PRECIO.Text = Format(TXT_PRECIO.Text, "Currency")
     End Sub
@@ -147,19 +126,14 @@ Public Class FRM_PRODUCTOS
     End Sub
 
     Private Sub LST_PRODUCTOS_SelectedIndexChanged(sender As Object, e As EventArgs) Handles LST_PRODUCTOS.SelectedIndexChanged
-        If LST_PRODUCTOS.SelectedIndex >= 0 Then
-            ID = Trim(LST_PRODUCTOS.SelectedItem.Substring(0, 5))
-            NOMBRE = Trim(LST_PRODUCTOS.SelectedItem.Substring(6, 40))
-            PRECIO = Trim(LST_PRODUCTOS.SelectedItem.Substring(47, 12))
-            REAL = Val(Trim(LST_PRODUCTOS.SelectedItem.Substring(60, 3)))
-            CRITICO = Val(Trim(LST_PRODUCTOS.SelectedItem.Substring(64, 3)))
-            TXT_ID.Text = ID
-            TXT_NOMBRE.Text = NOMBRE
-            TXT_PRECIO.Text = PRECIO
-            NUM_STOCK_REAL.Value = REAL
-            NUM_STOCK_CRITICO.Value = CRITICO
-            BTN_MODIFICAR.Enabled = True
-            BTN_ELIMINAR.Enabled = True
+        If (LST_PRODUCTOS.SelectedIndex >= 0) Then
+            Item = LST_PRODUCTOS.SelectedItem
+            Campos = ExtraerDatos(Item)
+            TXT_ID.Text = Campos(0)
+            TXT_NOMBRE.Text = Campos(1)
+            TXT_PRECIO.Text = Campos(2)
+            NUM_STOCK_REAL.Value = Campos(3)
+            NUM_STOCK_CRITICO.Value = Campos(4)
         End If
     End Sub
 
@@ -197,49 +171,82 @@ Public Class FRM_PRODUCTOS
         End If
     End Sub
 
-    Private Sub GroupBox1_Enter(sender As Object, e As EventArgs) Handles GroupBox1.Enter
-
-    End Sub
+    Private Function Centrar(Texto, Numero)
+        Espacios = Space(Math.Truncate(Numero - Len(Texto)) / 2)
+        Valor = Espacios & Texto & Espacios
+        Return Valor
+    End Function
 
     Private Sub FRM_PRODUCTOS_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'LST_PRODUCTOS.Items.Add("          1         2         3         4         5         6         7     ")
+        'LST_PRODUCTOS.Items.Add("01234567890123456789012345678901234567890123456789012345678901234567890123456789")
         Dim ARCHIVO As New System.IO.StreamReader("PRODUCTOS.TXT")
         Dim REGISTRO As String
         Dim ELEMENTO() As String
         REGISTRO = ARCHIVO.ReadLine()
         While REGISTRO <> ""
             ELEMENTO = REGISTRO.Split(";")
-            ID = ELEMENTO(0).PadRight(5)
-            NOMBRE = ELEMENTO(1).PadRight(40)
-            PRECIO = ELEMENTO(2).PadRight(12)
-            REAL = ELEMENTO(3).PadRight(3)
-            CRITICO = ELEMENTO(4).PadRight(3)
-            LST_PRODUCTOS.Items.Add(ID & " " & NOMBRE & " " & PRECIO & " " & REAL & " " & CRITICO)
+            LST_PRODUCTOS.Items.Add(FormatoItem(ELEMENTO(0), ELEMENTO(1), ELEMENTO(2), ELEMENTO(3), ELEMENTO(4)))
             REGISTRO = ARCHIVO.ReadLine()
         End While
         ARCHIVO.Close()
 
     End Sub
 
-    Private Sub FRM_PRODUCTOS_MouseMove(sender As Object, e As MouseEventArgs) Handles Me.MouseMove
+    Private Sub LBL_ESTADO_MouseHover(sender As Object, e As EventArgs) Handles LBL_ESTADO.MouseHover, LBL_ID.MouseHover,
+            LBL_NOMBRE.MouseHover, LBL_PRECIO.MouseHover, LBL_REAL.MouseHover, LBL_CRITICO.MouseHover
+        Datos = sender.ToString.Split
+        Select Case Datos(2)
+            Case "ID"
+                LBL_ESTADO.Text = "Ordenar por ID"
+            Case "NOMBRE"
+                LBL_ESTADO.Text = "Ordenar por nombre"
+            Case "PRECIO"
+                LBL_ESTADO.Text = "Ordenar por Precio"
+            Case "REAL"
+                LBL_ESTADO.Text = "Ordenar por Stock Real"
+            Case "CRITICO"
+                LBL_ESTADO.Text = "Ordenar por Stock Critico"
+        End Select
+
     End Sub
 
-    Private Sub Label7_Click(sender As Object, e As EventArgs) Handles Label7.Click
+    Private Sub LBL_ESTADO_MouseLeave(sender As Object, e As EventArgs) Handles LBL_ESTADO.MouseLeave, LBL_ID.MouseLeave,
+            LBL_NOMBRE.MouseLeave, LBL_PRECIO.MouseLeave, LBL_REAL.MouseLeave, LBL_CRITICO.MouseLeave
+        LBL_ESTADO.Text = ""
+    End Sub
+
+    Private Function FormatoItem(ID, NOMBRE, PRECIO, REAL, CRITICO)
+        ID = ID.PadRight(5)
+        NOMBRE = NOMBRE.PadRight(40)
+        PRECIO = Format(PRECIO, "CURRENCY").PadLeft(10)
+        REAL = Centrar(REAL.ToString.PadRight(3), 9)
+        CRITICO = Centrar(CRITICO.ToString.PadRight(3), 8)
+        Return ID & " " & NOMBRE & " " & PRECIO & " " & REAL & " " & CRITICO
+    End Function
+
+    Private Function ExtraerDatos(Item)
+        If (Item <> "") Then
+            Dim Campos(5)
+            Campos(0) = Trim(Item.ToString.Substring(0, 5))
+            Campos(1) = Trim(Item.ToString.Substring(6, 40))
+            Campos(2) = Trim(Item.ToString.Substring(47, 10))
+            Campos(3) = Trim(Item.ToString.Substring(58, 9))
+            Campos(4) = Trim(Item.ToString.Substring(66, 9))
+            Return Campos
+        End If
+
+    End Function
+
+    Private Sub BTN_SALIR_Click(sender As Object, e As EventArgs) Handles BTN_SALIR.Click
+        Me.Close()
+    End Sub
+
+    Private Sub LBL_NOMBRE_Click(sender As Object, e As EventArgs) Handles LBL_NOMBRE.Click
 
     End Sub
 
-    Private Sub Label8_Click(sender As Object, e As EventArgs) Handles Label8.Click
-
-    End Sub
-
-    Private Sub Label11_Click(sender As Object, e As EventArgs) Handles Label11.Click
-
-    End Sub
-
-    Private Sub Label10_Click(sender As Object, e As EventArgs) Handles Label10.Click
-
-    End Sub
-
-    Private Sub TextBox3_TextChanged(sender As Object, e As EventArgs) Handles TextBox3.TextChanged
+    Private Sub LBL_CRITICO_Click(sender As Object, e As EventArgs) Handles LBL_CRITICO.Click
 
     End Sub
 End Class

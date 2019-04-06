@@ -34,3 +34,15 @@ D:\POE\ClinicaVeterinaria-master\CLINICA VETERINARIA\obj\Debug\CLINICA VETERINAR
 D:\POE\ClinicaVeterinaria-master\CLINICA VETERINARIA\obj\Debug\CLINICA VETERINARIA.exe
 D:\POE\ClinicaVeterinaria-master\CLINICA VETERINARIA\obj\Debug\CLINICA VETERINARIA.xml
 D:\POE\ClinicaVeterinaria-master\CLINICA VETERINARIA\obj\Debug\CLINICA VETERINARIA.pdb
+D:\USM\2019\POE\ACTIVIDAD 3\ClinicaVeterinaria-master-20190406T153555Z-001\ClinicaVeterinaria-master\CLINICA VETERINARIA\bin\Debug\CLINICA VETERINARIA.exe.config
+D:\USM\2019\POE\ACTIVIDAD 3\ClinicaVeterinaria-master-20190406T153555Z-001\ClinicaVeterinaria-master\CLINICA VETERINARIA\bin\Debug\CLINICA VETERINARIA.exe
+D:\USM\2019\POE\ACTIVIDAD 3\ClinicaVeterinaria-master-20190406T153555Z-001\ClinicaVeterinaria-master\CLINICA VETERINARIA\bin\Debug\CLINICA VETERINARIA.pdb
+D:\USM\2019\POE\ACTIVIDAD 3\ClinicaVeterinaria-master-20190406T153555Z-001\ClinicaVeterinaria-master\CLINICA VETERINARIA\bin\Debug\CLINICA VETERINARIA.xml
+D:\USM\2019\POE\ACTIVIDAD 3\ClinicaVeterinaria-master-20190406T153555Z-001\ClinicaVeterinaria-master\CLINICA VETERINARIA\obj\Debug\CLINICA VETERINARIA.vbprojAssemblyReference.cache
+D:\USM\2019\POE\ACTIVIDAD 3\ClinicaVeterinaria-master-20190406T153555Z-001\ClinicaVeterinaria-master\CLINICA VETERINARIA\obj\Debug\CLINICA_VETERINARIA.FRM_PRODUCTOS.resources
+D:\USM\2019\POE\ACTIVIDAD 3\ClinicaVeterinaria-master-20190406T153555Z-001\ClinicaVeterinaria-master\CLINICA VETERINARIA\obj\Debug\CLINICA_VETERINARIA.Resources.resources
+D:\USM\2019\POE\ACTIVIDAD 3\ClinicaVeterinaria-master-20190406T153555Z-001\ClinicaVeterinaria-master\CLINICA VETERINARIA\obj\Debug\CLINICA VETERINARIA.vbproj.GenerateResource.cache
+D:\USM\2019\POE\ACTIVIDAD 3\ClinicaVeterinaria-master-20190406T153555Z-001\ClinicaVeterinaria-master\CLINICA VETERINARIA\obj\Debug\CLINICA VETERINARIA.vbproj.CoreCompileInputs.cache
+D:\USM\2019\POE\ACTIVIDAD 3\ClinicaVeterinaria-master-20190406T153555Z-001\ClinicaVeterinaria-master\CLINICA VETERINARIA\obj\Debug\CLINICA VETERINARIA.exe
+D:\USM\2019\POE\ACTIVIDAD 3\ClinicaVeterinaria-master-20190406T153555Z-001\ClinicaVeterinaria-master\CLINICA VETERINARIA\obj\Debug\CLINICA VETERINARIA.xml
+D:\USM\2019\POE\ACTIVIDAD 3\ClinicaVeterinaria-master-20190406T153555Z-001\ClinicaVeterinaria-master\CLINICA VETERINARIA\obj\Debug\CLINICA VETERINARIA.pdb
