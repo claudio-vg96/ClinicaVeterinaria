@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FRM_PRODUCTOS
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,10 +20,11 @@ Partial Class FRM_PRODUCTOS
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.LST_PRODUCTOS = New System.Windows.Forms.ListBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.BTN_CANCELAR = New System.Windows.Forms.Button()
         Me.BTN_ACEPTAR = New System.Windows.Forms.Button()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -51,7 +52,9 @@ Partial Class FRM_PRODUCTOS
         Me.LBL_CRITICO = New System.Windows.Forms.Label()
         Me.TextBox4 = New System.Windows.Forms.TextBox()
         Me.TextBox6 = New System.Windows.Forms.TextBox()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NUM_STOCK_CRITICO, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NUM_STOCK_REAL, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -68,6 +71,7 @@ Partial Class FRM_PRODUCTOS
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.PictureBox1)
         Me.GroupBox1.Controls.Add(Me.BTN_CANCELAR)
         Me.GroupBox1.Controls.Add(Me.BTN_ACEPTAR)
         Me.GroupBox1.Controls.Add(Me.Label5)
@@ -86,6 +90,18 @@ Partial Class FRM_PRODUCTOS
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "v"
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.PictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.PictureBox1.Enabled = False
+        Me.PictureBox1.Location = New System.Drawing.Point(440, 19)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(100, 100)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 10
+        Me.PictureBox1.TabStop = False
         '
         'BTN_CANCELAR
         '
@@ -332,11 +348,24 @@ Partial Class FRM_PRODUCTOS
         Me.TextBox6.Size = New System.Drawing.Size(51, 20)
         Me.TextBox6.TabIndex = 23
         '
+        'CheckBox1
+        '
+        Me.CheckBox1.Appearance = System.Windows.Forms.Appearance.Button
+        Me.CheckBox1.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.CheckBox1.Image = Global.CLINICA_VETERINARIA.My.Resources.Resources.Very_Basic_Binoculars_icon1
+        Me.CheckBox1.Location = New System.Drawing.Point(580, 190)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(20, 20)
+        Me.CheckBox1.TabIndex = 24
+        Me.CheckBox1.Text = "CheckBox1"
+        Me.CheckBox1.UseVisualStyleBackColor = True
+        '
         'FRM_PRODUCTOS
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(604, 571)
+        Me.Controls.Add(Me.CheckBox1)
         Me.Controls.Add(Me.TextBox6)
         Me.Controls.Add(Me.TextBox4)
         Me.Controls.Add(Me.LBL_CRITICO)
@@ -362,6 +391,7 @@ Partial Class FRM_PRODUCTOS
         Me.Text = "MANTENEDOR DE PRODUCTOS"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NUM_STOCK_CRITICO, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NUM_STOCK_REAL, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -398,4 +428,6 @@ Partial Class FRM_PRODUCTOS
     Friend WithEvents LBL_CRITICO As Label
     Friend WithEvents TextBox4 As TextBox
     Friend WithEvents TextBox6 As TextBox
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents CheckBox1 As CheckBox
 End Class

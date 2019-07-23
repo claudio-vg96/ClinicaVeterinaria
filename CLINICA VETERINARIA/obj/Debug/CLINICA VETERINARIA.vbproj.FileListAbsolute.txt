@@ -46,3 +46,15 @@ D:\USM\2019\POE\ACTIVIDAD 3\ClinicaVeterinaria-master-20190406T153555Z-001\Clini
 D:\USM\2019\POE\ACTIVIDAD 3\ClinicaVeterinaria-master-20190406T153555Z-001\ClinicaVeterinaria-master\CLINICA VETERINARIA\obj\Debug\CLINICA VETERINARIA.exe
 D:\USM\2019\POE\ACTIVIDAD 3\ClinicaVeterinaria-master-20190406T153555Z-001\ClinicaVeterinaria-master\CLINICA VETERINARIA\obj\Debug\CLINICA VETERINARIA.xml
 D:\USM\2019\POE\ACTIVIDAD 3\ClinicaVeterinaria-master-20190406T153555Z-001\ClinicaVeterinaria-master\CLINICA VETERINARIA\obj\Debug\CLINICA VETERINARIA.pdb
+D:\ClinicaVeterinaria-master\CLINICA VETERINARIA\bin\Debug\CLINICA VETERINARIA.exe.config
+D:\ClinicaVeterinaria-master\CLINICA VETERINARIA\bin\Debug\CLINICA VETERINARIA.exe
+D:\ClinicaVeterinaria-master\CLINICA VETERINARIA\bin\Debug\CLINICA VETERINARIA.pdb
+D:\ClinicaVeterinaria-master\CLINICA VETERINARIA\bin\Debug\CLINICA VETERINARIA.xml
+D:\ClinicaVeterinaria-master\CLINICA VETERINARIA\obj\Debug\CLINICA VETERINARIA.vbprojResolveAssemblyReference.cache
+D:\ClinicaVeterinaria-master\CLINICA VETERINARIA\obj\Debug\CLINICA_VETERINARIA.FRM_PRODUCTOS.resources
+D:\ClinicaVeterinaria-master\CLINICA VETERINARIA\obj\Debug\CLINICA_VETERINARIA.Resources.resources
+D:\ClinicaVeterinaria-master\CLINICA VETERINARIA\obj\Debug\CLINICA VETERINARIA.vbproj.GenerateResource.Cache
+D:\ClinicaVeterinaria-master\CLINICA VETERINARIA\obj\Debug\CLINICA VETERINARIA.vbproj.CoreCompileInputs.cache
+D:\ClinicaVeterinaria-master\CLINICA VETERINARIA\obj\Debug\CLINICA VETERINARIA.exe
+D:\ClinicaVeterinaria-master\CLINICA VETERINARIA\obj\Debug\CLINICA VETERINARIA.xml
+D:\ClinicaVeterinaria-master\CLINICA VETERINARIA\obj\Debug\CLINICA VETERINARIA.pdb

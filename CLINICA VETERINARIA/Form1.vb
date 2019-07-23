@@ -127,6 +127,7 @@ Public Class FRM_PRODUCTOS
 
     Private Sub LST_PRODUCTOS_SelectedIndexChanged(sender As Object, e As EventArgs) Handles LST_PRODUCTOS.SelectedIndexChanged
         If (LST_PRODUCTOS.SelectedIndex >= 0) Then
+            PictureBox1.Enabled = True
             Item = LST_PRODUCTOS.SelectedItem
             Campos = ExtraerDatos(Item)
             TXT_ID.Text = Campos(0)
@@ -134,6 +135,9 @@ Public Class FRM_PRODUCTOS
             TXT_PRECIO.Text = Campos(2)
             NUM_STOCK_REAL.Value = Campos(3)
             NUM_STOCK_CRITICO.Value = Campos(4)
+            If My.Computer.FileSystem.FileExists("D: \ClinicaVeterinaria-master\images\" + TXT_ID.Text) Then
+                PictureBox1.Image = Image.FromFile("D: \ClinicaVeterinaria-master\images\" + TXT_ID.Text)
+            End If
         End If
     End Sub
 
@@ -247,6 +251,20 @@ Public Class FRM_PRODUCTOS
     End Sub
 
     Private Sub LBL_CRITICO_Click(sender As Object, e As EventArgs) Handles LBL_CRITICO.Click
+
+    End Sub
+
+    Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
+        Dim file As New OpenFileDialog()
+        file.Filter = "Archivo PNG|*.png"
+        If file.ShowDialog() = DialogResult.OK Then
+            PictureBox1.Image = Image.FromFile(file.FileName)
+            My.Computer.FileSystem.CopyFile(file.FileName, "D:\ClinicaVeterinaria-master\images\" + TXT_ID.Text)
+
+        End If
+    End Sub
+
+    Private Sub CheckBox1_CheckedChanged_2(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
 
     End Sub
 End Class
