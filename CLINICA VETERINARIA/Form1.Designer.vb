@@ -41,18 +41,19 @@ Partial Class FRM_PRODUCTOS
         Me.BTN_MODIFICAR = New System.Windows.Forms.Button()
         Me.BTN_ELIMINAR = New System.Windows.Forms.Button()
         Me.BTN_SALIR = New System.Windows.Forms.Button()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.TXT_ID_AUX = New System.Windows.Forms.TextBox()
+        Me.TXT_NOMBRE_AUX = New System.Windows.Forms.TextBox()
+        Me.TXT_PRECIO_AUX = New System.Windows.Forms.TextBox()
         Me.LBL_ESTADO = New System.Windows.Forms.Label()
         Me.LBL_ID = New System.Windows.Forms.Label()
         Me.LBL_NOMBRE = New System.Windows.Forms.Label()
         Me.LBL_PRECIO = New System.Windows.Forms.Label()
         Me.LBL_REAL = New System.Windows.Forms.Label()
         Me.LBL_CRITICO = New System.Windows.Forms.Label()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
-        Me.TextBox6 = New System.Windows.Forms.TextBox()
+        Me.TXT_CRITICO_AUX = New System.Windows.Forms.TextBox()
+        Me.TXT_REAL_AUX = New System.Windows.Forms.TextBox()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.LST_PRODUCTOS_AUX = New System.Windows.Forms.ListBox()
         Me.GroupBox1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NUM_STOCK_CRITICO, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -63,10 +64,11 @@ Partial Class FRM_PRODUCTOS
         '
         Me.LST_PRODUCTOS.Font = New System.Drawing.Font("Consolas", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LST_PRODUCTOS.FormattingEnabled = True
-        Me.LST_PRODUCTOS.ItemHeight = 15
-        Me.LST_PRODUCTOS.Location = New System.Drawing.Point(32, 26)
+        Me.LST_PRODUCTOS.ItemHeight = 19
+        Me.LST_PRODUCTOS.Location = New System.Drawing.Point(43, 32)
+        Me.LST_PRODUCTOS.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.LST_PRODUCTOS.Name = "LST_PRODUCTOS"
-        Me.LST_PRODUCTOS.Size = New System.Drawing.Size(542, 184)
+        Me.LST_PRODUCTOS.Size = New System.Drawing.Size(721, 213)
         Me.LST_PRODUCTOS.TabIndex = 0
         '
         'GroupBox1
@@ -84,9 +86,11 @@ Partial Class FRM_PRODUCTOS
         Me.GroupBox1.Controls.Add(Me.TXT_PRECIO)
         Me.GroupBox1.Controls.Add(Me.TXT_NOMBRE)
         Me.GroupBox1.Controls.Add(Me.TXT_ID)
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 259)
+        Me.GroupBox1.Location = New System.Drawing.Point(16, 319)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(562, 218)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Size = New System.Drawing.Size(749, 268)
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "v"
@@ -96,9 +100,10 @@ Partial Class FRM_PRODUCTOS
         Me.PictureBox1.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.PictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.PictureBox1.Enabled = False
-        Me.PictureBox1.Location = New System.Drawing.Point(440, 19)
+        Me.PictureBox1.Location = New System.Drawing.Point(587, 23)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(100, 100)
+        Me.PictureBox1.Size = New System.Drawing.Size(132, 122)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 10
         Me.PictureBox1.TabStop = False
@@ -106,9 +111,10 @@ Partial Class FRM_PRODUCTOS
         'BTN_CANCELAR
         '
         Me.BTN_CANCELAR.Enabled = False
-        Me.BTN_CANCELAR.Location = New System.Drawing.Point(429, 145)
+        Me.BTN_CANCELAR.Location = New System.Drawing.Point(572, 178)
+        Me.BTN_CANCELAR.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.BTN_CANCELAR.Name = "BTN_CANCELAR"
-        Me.BTN_CANCELAR.Size = New System.Drawing.Size(91, 39)
+        Me.BTN_CANCELAR.Size = New System.Drawing.Size(121, 48)
         Me.BTN_CANCELAR.TabIndex = 6
         Me.BTN_CANCELAR.Text = "&CANCELAR"
         Me.BTN_CANCELAR.UseVisualStyleBackColor = True
@@ -116,9 +122,10 @@ Partial Class FRM_PRODUCTOS
         'BTN_ACEPTAR
         '
         Me.BTN_ACEPTAR.Enabled = False
-        Me.BTN_ACEPTAR.Location = New System.Drawing.Point(324, 145)
+        Me.BTN_ACEPTAR.Location = New System.Drawing.Point(432, 178)
+        Me.BTN_ACEPTAR.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.BTN_ACEPTAR.Name = "BTN_ACEPTAR"
-        Me.BTN_ACEPTAR.Size = New System.Drawing.Size(91, 39)
+        Me.BTN_ACEPTAR.Size = New System.Drawing.Size(121, 48)
         Me.BTN_ACEPTAR.TabIndex = 5
         Me.BTN_ACEPTAR.Text = "&ACEPTAR"
         Me.BTN_ACEPTAR.UseVisualStyleBackColor = True
@@ -126,156 +133,179 @@ Partial Class FRM_PRODUCTOS
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(24, 166)
+        Me.Label5.Location = New System.Drawing.Point(32, 204)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(89, 13)
+        Me.Label5.Size = New System.Drawing.Size(113, 17)
         Me.Label5.TabIndex = 9
         Me.Label5.Text = "STOCK CRITICO"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(24, 132)
+        Me.Label4.Location = New System.Drawing.Point(32, 162)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(74, 13)
+        Me.Label4.Size = New System.Drawing.Size(95, 17)
         Me.Label4.TabIndex = 8
         Me.Label4.Text = "STOCK REAL"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(24, 97)
+        Me.Label3.Location = New System.Drawing.Point(32, 119)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(47, 13)
+        Me.Label3.Size = New System.Drawing.Size(59, 17)
         Me.Label3.TabIndex = 7
         Me.Label3.Text = "PRECIO"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(24, 62)
+        Me.Label2.Location = New System.Drawing.Point(32, 76)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(57, 13)
+        Me.Label2.Size = New System.Drawing.Size(72, 17)
         Me.Label2.TabIndex = 6
         Me.Label2.Text = "NOMBRE:"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(24, 32)
+        Me.Label1.Location = New System.Drawing.Point(32, 39)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(18, 13)
+        Me.Label1.Size = New System.Drawing.Size(21, 17)
         Me.Label1.TabIndex = 5
         Me.Label1.Text = "ID"
         '
         'NUM_STOCK_CRITICO
         '
         Me.NUM_STOCK_CRITICO.Enabled = False
-        Me.NUM_STOCK_CRITICO.Location = New System.Drawing.Point(119, 164)
+        Me.NUM_STOCK_CRITICO.Location = New System.Drawing.Point(159, 202)
+        Me.NUM_STOCK_CRITICO.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.NUM_STOCK_CRITICO.Name = "NUM_STOCK_CRITICO"
-        Me.NUM_STOCK_CRITICO.Size = New System.Drawing.Size(74, 20)
+        Me.NUM_STOCK_CRITICO.Size = New System.Drawing.Size(99, 22)
         Me.NUM_STOCK_CRITICO.TabIndex = 4
         '
         'NUM_STOCK_REAL
         '
         Me.NUM_STOCK_REAL.Enabled = False
-        Me.NUM_STOCK_REAL.Location = New System.Drawing.Point(119, 130)
+        Me.NUM_STOCK_REAL.Location = New System.Drawing.Point(159, 160)
+        Me.NUM_STOCK_REAL.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.NUM_STOCK_REAL.Name = "NUM_STOCK_REAL"
-        Me.NUM_STOCK_REAL.Size = New System.Drawing.Size(74, 20)
+        Me.NUM_STOCK_REAL.Size = New System.Drawing.Size(99, 22)
         Me.NUM_STOCK_REAL.TabIndex = 3
         '
         'TXT_PRECIO
         '
         Me.TXT_PRECIO.Enabled = False
-        Me.TXT_PRECIO.Location = New System.Drawing.Point(119, 94)
+        Me.TXT_PRECIO.Location = New System.Drawing.Point(159, 116)
+        Me.TXT_PRECIO.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TXT_PRECIO.MaxLength = 9
         Me.TXT_PRECIO.Name = "TXT_PRECIO"
-        Me.TXT_PRECIO.Size = New System.Drawing.Size(100, 20)
+        Me.TXT_PRECIO.Size = New System.Drawing.Size(132, 22)
         Me.TXT_PRECIO.TabIndex = 2
         '
         'TXT_NOMBRE
         '
         Me.TXT_NOMBRE.Enabled = False
-        Me.TXT_NOMBRE.Location = New System.Drawing.Point(119, 59)
+        Me.TXT_NOMBRE.Location = New System.Drawing.Point(159, 73)
+        Me.TXT_NOMBRE.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TXT_NOMBRE.MaxLength = 40
         Me.TXT_NOMBRE.Name = "TXT_NOMBRE"
-        Me.TXT_NOMBRE.Size = New System.Drawing.Size(278, 20)
+        Me.TXT_NOMBRE.Size = New System.Drawing.Size(369, 22)
         Me.TXT_NOMBRE.TabIndex = 1
         '
         'TXT_ID
         '
         Me.TXT_ID.Enabled = False
-        Me.TXT_ID.Location = New System.Drawing.Point(119, 25)
+        Me.TXT_ID.Location = New System.Drawing.Point(159, 31)
+        Me.TXT_ID.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TXT_ID.MaxLength = 5
         Me.TXT_ID.Name = "TXT_ID"
-        Me.TXT_ID.Size = New System.Drawing.Size(74, 20)
+        Me.TXT_ID.Size = New System.Drawing.Size(97, 22)
         Me.TXT_ID.TabIndex = 0
         '
         'BTN_NUEVO
         '
-        Me.BTN_NUEVO.Location = New System.Drawing.Point(32, 483)
+        Me.BTN_NUEVO.Location = New System.Drawing.Point(43, 594)
+        Me.BTN_NUEVO.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.BTN_NUEVO.Name = "BTN_NUEVO"
-        Me.BTN_NUEVO.Size = New System.Drawing.Size(130, 48)
+        Me.BTN_NUEVO.Size = New System.Drawing.Size(173, 59)
         Me.BTN_NUEVO.TabIndex = 7
         Me.BTN_NUEVO.Text = "&NUEVO"
         Me.BTN_NUEVO.UseVisualStyleBackColor = True
         '
         'BTN_MODIFICAR
         '
-        Me.BTN_MODIFICAR.Location = New System.Drawing.Point(168, 483)
+        Me.BTN_MODIFICAR.Location = New System.Drawing.Point(224, 594)
+        Me.BTN_MODIFICAR.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.BTN_MODIFICAR.Name = "BTN_MODIFICAR"
-        Me.BTN_MODIFICAR.Size = New System.Drawing.Size(130, 48)
+        Me.BTN_MODIFICAR.Size = New System.Drawing.Size(173, 59)
         Me.BTN_MODIFICAR.TabIndex = 8
         Me.BTN_MODIFICAR.Text = "&MODIFICAR"
         Me.BTN_MODIFICAR.UseVisualStyleBackColor = True
         '
         'BTN_ELIMINAR
         '
-        Me.BTN_ELIMINAR.Location = New System.Drawing.Point(304, 483)
+        Me.BTN_ELIMINAR.Location = New System.Drawing.Point(405, 594)
+        Me.BTN_ELIMINAR.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.BTN_ELIMINAR.Name = "BTN_ELIMINAR"
-        Me.BTN_ELIMINAR.Size = New System.Drawing.Size(130, 48)
+        Me.BTN_ELIMINAR.Size = New System.Drawing.Size(173, 59)
         Me.BTN_ELIMINAR.TabIndex = 9
         Me.BTN_ELIMINAR.Text = "&ELIMINAR"
         Me.BTN_ELIMINAR.UseVisualStyleBackColor = True
         '
         'BTN_SALIR
         '
-        Me.BTN_SALIR.Location = New System.Drawing.Point(436, 483)
+        Me.BTN_SALIR.Location = New System.Drawing.Point(581, 594)
+        Me.BTN_SALIR.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.BTN_SALIR.Name = "BTN_SALIR"
-        Me.BTN_SALIR.Size = New System.Drawing.Size(130, 48)
+        Me.BTN_SALIR.Size = New System.Drawing.Size(173, 59)
         Me.BTN_SALIR.TabIndex = 10
         Me.BTN_SALIR.Text = "&SALIR"
         Me.BTN_SALIR.UseVisualStyleBackColor = True
         '
-        'TextBox1
+        'TXT_ID_AUX
         '
-        Me.TextBox1.Location = New System.Drawing.Point(32, 216)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(32, 20)
-        Me.TextBox1.TabIndex = 11
+        Me.TXT_ID_AUX.Enabled = False
+        Me.TXT_ID_AUX.Location = New System.Drawing.Point(43, 266)
+        Me.TXT_ID_AUX.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TXT_ID_AUX.MaxLength = 5
+        Me.TXT_ID_AUX.Name = "TXT_ID_AUX"
+        Me.TXT_ID_AUX.Size = New System.Drawing.Size(41, 22)
+        Me.TXT_ID_AUX.TabIndex = 11
         '
-        'TextBox2
+        'TXT_NOMBRE_AUX
         '
-        Me.TextBox2.Location = New System.Drawing.Point(70, 216)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(287, 20)
-        Me.TextBox2.TabIndex = 12
+        Me.TXT_NOMBRE_AUX.Enabled = False
+        Me.TXT_NOMBRE_AUX.Location = New System.Drawing.Point(93, 266)
+        Me.TXT_NOMBRE_AUX.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TXT_NOMBRE_AUX.Name = "TXT_NOMBRE_AUX"
+        Me.TXT_NOMBRE_AUX.Size = New System.Drawing.Size(381, 22)
+        Me.TXT_NOMBRE_AUX.TabIndex = 12
         '
-        'TextBox3
+        'TXT_PRECIO_AUX
         '
-        Me.TextBox3.Location = New System.Drawing.Point(366, 216)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(77, 20)
-        Me.TextBox3.TabIndex = 13
+        Me.TXT_PRECIO_AUX.Enabled = False
+        Me.TXT_PRECIO_AUX.Location = New System.Drawing.Point(488, 266)
+        Me.TXT_PRECIO_AUX.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TXT_PRECIO_AUX.MaxLength = 9
+        Me.TXT_PRECIO_AUX.Name = "TXT_PRECIO_AUX"
+        Me.TXT_PRECIO_AUX.Size = New System.Drawing.Size(101, 22)
+        Me.TXT_PRECIO_AUX.TabIndex = 13
         '
         'LBL_ESTADO
         '
         Me.LBL_ESTADO.BackColor = System.Drawing.Color.Black
         Me.LBL_ESTADO.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LBL_ESTADO.ForeColor = System.Drawing.Color.White
-        Me.LBL_ESTADO.Location = New System.Drawing.Point(32, 546)
+        Me.LBL_ESTADO.Location = New System.Drawing.Point(43, 672)
+        Me.LBL_ESTADO.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LBL_ESTADO.Name = "LBL_ESTADO"
-        Me.LBL_ESTADO.Size = New System.Drawing.Size(534, 13)
+        Me.LBL_ESTADO.Size = New System.Drawing.Size(712, 16)
         Me.LBL_ESTADO.TabIndex = 15
         Me.LBL_ESTADO.Text = "PieFormulario"
         '
@@ -284,9 +314,10 @@ Partial Class FRM_PRODUCTOS
         Me.LBL_ID.BackColor = System.Drawing.SystemColors.Desktop
         Me.LBL_ID.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LBL_ID.ForeColor = System.Drawing.Color.White
-        Me.LBL_ID.Location = New System.Drawing.Point(32, 7)
+        Me.LBL_ID.Location = New System.Drawing.Point(43, 9)
+        Me.LBL_ID.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LBL_ID.Name = "LBL_ID"
-        Me.LBL_ID.Size = New System.Drawing.Size(40, 13)
+        Me.LBL_ID.Size = New System.Drawing.Size(53, 16)
         Me.LBL_ID.TabIndex = 16
         Me.LBL_ID.Text = "ID   "
         '
@@ -295,9 +326,10 @@ Partial Class FRM_PRODUCTOS
         Me.LBL_NOMBRE.BackColor = System.Drawing.SystemColors.Desktop
         Me.LBL_NOMBRE.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LBL_NOMBRE.ForeColor = System.Drawing.Color.White
-        Me.LBL_NOMBRE.Location = New System.Drawing.Point(78, 7)
+        Me.LBL_NOMBRE.Location = New System.Drawing.Point(104, 9)
+        Me.LBL_NOMBRE.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LBL_NOMBRE.Name = "LBL_NOMBRE"
-        Me.LBL_NOMBRE.Size = New System.Drawing.Size(279, 13)
+        Me.LBL_NOMBRE.Size = New System.Drawing.Size(372, 16)
         Me.LBL_NOMBRE.TabIndex = 17
         Me.LBL_NOMBRE.Text = "NOMBRE                                  "
         '
@@ -306,9 +338,10 @@ Partial Class FRM_PRODUCTOS
         Me.LBL_PRECIO.BackColor = System.Drawing.SystemColors.Desktop
         Me.LBL_PRECIO.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LBL_PRECIO.ForeColor = System.Drawing.Color.White
-        Me.LBL_PRECIO.Location = New System.Drawing.Point(363, 7)
+        Me.LBL_PRECIO.Location = New System.Drawing.Point(484, 9)
+        Me.LBL_PRECIO.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LBL_PRECIO.Name = "LBL_PRECIO"
-        Me.LBL_PRECIO.Size = New System.Drawing.Size(80, 13)
+        Me.LBL_PRECIO.Size = New System.Drawing.Size(107, 16)
         Me.LBL_PRECIO.TabIndex = 18
         Me.LBL_PRECIO.Text = "PRECIO"
         '
@@ -317,9 +350,10 @@ Partial Class FRM_PRODUCTOS
         Me.LBL_REAL.BackColor = System.Drawing.SystemColors.Desktop
         Me.LBL_REAL.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LBL_REAL.ForeColor = System.Drawing.Color.White
-        Me.LBL_REAL.Location = New System.Drawing.Point(449, 7)
+        Me.LBL_REAL.Location = New System.Drawing.Point(599, 9)
+        Me.LBL_REAL.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LBL_REAL.Name = "LBL_REAL"
-        Me.LBL_REAL.Size = New System.Drawing.Size(54, 13)
+        Me.LBL_REAL.Size = New System.Drawing.Size(72, 16)
         Me.LBL_REAL.TabIndex = 19
         Me.LBL_REAL.Text = "REAL"
         '
@@ -328,55 +362,76 @@ Partial Class FRM_PRODUCTOS
         Me.LBL_CRITICO.BackColor = System.Drawing.SystemColors.Desktop
         Me.LBL_CRITICO.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LBL_CRITICO.ForeColor = System.Drawing.Color.White
-        Me.LBL_CRITICO.Location = New System.Drawing.Point(509, 7)
+        Me.LBL_CRITICO.Location = New System.Drawing.Point(679, 9)
+        Me.LBL_CRITICO.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LBL_CRITICO.Name = "LBL_CRITICO"
-        Me.LBL_CRITICO.Size = New System.Drawing.Size(57, 13)
+        Me.LBL_CRITICO.Size = New System.Drawing.Size(76, 16)
         Me.LBL_CRITICO.TabIndex = 20
         Me.LBL_CRITICO.Text = "CRITICO"
         '
-        'TextBox4
+        'TXT_CRITICO_AUX
         '
-        Me.TextBox4.Location = New System.Drawing.Point(512, 216)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(54, 20)
-        Me.TextBox4.TabIndex = 22
+        Me.TXT_CRITICO_AUX.Enabled = False
+        Me.TXT_CRITICO_AUX.Location = New System.Drawing.Point(683, 266)
+        Me.TXT_CRITICO_AUX.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TXT_CRITICO_AUX.MaxLength = 3
+        Me.TXT_CRITICO_AUX.Name = "TXT_CRITICO_AUX"
+        Me.TXT_CRITICO_AUX.Size = New System.Drawing.Size(71, 22)
+        Me.TXT_CRITICO_AUX.TabIndex = 22
         '
-        'TextBox6
+        'TXT_REAL_AUX
         '
-        Me.TextBox6.Location = New System.Drawing.Point(452, 216)
-        Me.TextBox6.Name = "TextBox6"
-        Me.TextBox6.Size = New System.Drawing.Size(51, 20)
-        Me.TextBox6.TabIndex = 23
+        Me.TXT_REAL_AUX.Enabled = False
+        Me.TXT_REAL_AUX.Location = New System.Drawing.Point(603, 266)
+        Me.TXT_REAL_AUX.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TXT_REAL_AUX.MaxLength = 3
+        Me.TXT_REAL_AUX.Name = "TXT_REAL_AUX"
+        Me.TXT_REAL_AUX.Size = New System.Drawing.Size(67, 22)
+        Me.TXT_REAL_AUX.TabIndex = 23
         '
         'CheckBox1
         '
         Me.CheckBox1.Appearance = System.Windows.Forms.Appearance.Button
         Me.CheckBox1.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter
         Me.CheckBox1.Image = Global.CLINICA_VETERINARIA.My.Resources.Resources.Very_Basic_Binoculars_icon1
-        Me.CheckBox1.Location = New System.Drawing.Point(580, 190)
+        Me.CheckBox1.Location = New System.Drawing.Point(773, 234)
+        Me.CheckBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(20, 20)
+        Me.CheckBox1.Size = New System.Drawing.Size(27, 25)
         Me.CheckBox1.TabIndex = 24
         Me.CheckBox1.Text = "CheckBox1"
         Me.CheckBox1.UseVisualStyleBackColor = True
         '
+        'LST_PRODUCTOS_AUX
+        '
+        Me.LST_PRODUCTOS_AUX.Font = New System.Drawing.Font("Consolas", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LST_PRODUCTOS_AUX.FormattingEnabled = True
+        Me.LST_PRODUCTOS_AUX.ItemHeight = 19
+        Me.LST_PRODUCTOS_AUX.Location = New System.Drawing.Point(43, 32)
+        Me.LST_PRODUCTOS_AUX.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.LST_PRODUCTOS_AUX.Name = "LST_PRODUCTOS_AUX"
+        Me.LST_PRODUCTOS_AUX.Size = New System.Drawing.Size(721, 213)
+        Me.LST_PRODUCTOS_AUX.TabIndex = 25
+        Me.LST_PRODUCTOS_AUX.Visible = False
+        '
         'FRM_PRODUCTOS
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(604, 571)
+        Me.ClientSize = New System.Drawing.Size(805, 703)
+        Me.Controls.Add(Me.LST_PRODUCTOS_AUX)
         Me.Controls.Add(Me.CheckBox1)
-        Me.Controls.Add(Me.TextBox6)
-        Me.Controls.Add(Me.TextBox4)
+        Me.Controls.Add(Me.TXT_REAL_AUX)
+        Me.Controls.Add(Me.TXT_CRITICO_AUX)
         Me.Controls.Add(Me.LBL_CRITICO)
         Me.Controls.Add(Me.LBL_REAL)
         Me.Controls.Add(Me.LBL_PRECIO)
         Me.Controls.Add(Me.LBL_NOMBRE)
         Me.Controls.Add(Me.LBL_ID)
         Me.Controls.Add(Me.LBL_ESTADO)
-        Me.Controls.Add(Me.TextBox3)
-        Me.Controls.Add(Me.TextBox2)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.TXT_PRECIO_AUX)
+        Me.Controls.Add(Me.TXT_NOMBRE_AUX)
+        Me.Controls.Add(Me.TXT_ID_AUX)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.BTN_NUEVO)
         Me.Controls.Add(Me.BTN_MODIFICAR)
@@ -384,6 +439,7 @@ Partial Class FRM_PRODUCTOS
         Me.Controls.Add(Me.BTN_SALIR)
         Me.Controls.Add(Me.LST_PRODUCTOS)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "FRM_PRODUCTOS"
@@ -417,17 +473,18 @@ Partial Class FRM_PRODUCTOS
     Friend WithEvents TXT_ID As TextBox
     Friend WithEvents BTN_CANCELAR As Button
     Friend WithEvents BTN_ACEPTAR As Button
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents TXT_ID_AUX As TextBox
+    Friend WithEvents TXT_NOMBRE_AUX As TextBox
+    Friend WithEvents TXT_PRECIO_AUX As TextBox
     Friend WithEvents LBL_ESTADO As Label
     Friend WithEvents LBL_ID As Label
     Friend WithEvents LBL_NOMBRE As Label
     Friend WithEvents LBL_PRECIO As Label
     Friend WithEvents LBL_REAL As Label
     Friend WithEvents LBL_CRITICO As Label
-    Friend WithEvents TextBox4 As TextBox
-    Friend WithEvents TextBox6 As TextBox
+    Friend WithEvents TXT_CRITICO_AUX As TextBox
+    Friend WithEvents TXT_REAL_AUX As TextBox
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents CheckBox1 As CheckBox
+    Friend WithEvents LST_PRODUCTOS_AUX As ListBox
 End Class

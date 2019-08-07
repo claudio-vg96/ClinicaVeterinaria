@@ -265,6 +265,107 @@ Public Class FRM_PRODUCTOS
     End Sub
 
     Private Sub CheckBox1_CheckedChanged_2(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
+        TXT_ID_AUX.Enabled = True
+        TXT_NOMBRE_AUX.Enabled = True
+        TXT_PRECIO_AUX.Enabled = True
+        TXT_REAL_AUX.Enabled = True
+        TXT_CRITICO_AUX.Enabled = True
+        ''LST_PRODUCTOS_AUX.Location = New System.Drawing.Point(10, 10)
 
+    End Sub
+
+    Private Sub LST_PRODUCTOS_AUX_SelectedIndexChanged(sender As Object, e As EventArgs) Handles LST_PRODUCTOS_AUX.SelectedIndexChanged
+        If (LST_PRODUCTOS_AUX.SelectedIndex >= 0) Then
+            PictureBox1.Enabled = True
+            Item = LST_PRODUCTOS_AUX.SelectedItem
+            Campos = ExtraerDatos(Item)
+            TXT_ID.Text = Campos(0)
+            TXT_NOMBRE.Text = Campos(1)
+            TXT_PRECIO.Text = Campos(2)
+            NUM_STOCK_REAL.Value = Campos(3)
+            NUM_STOCK_CRITICO.Value = Campos(4)
+            If My.Computer.FileSystem.FileExists("D: \ClinicaVeterinaria-master\images\" + TXT_ID.Text) Then
+                PictureBox1.Image = Image.FromFile("D: \ClinicaVeterinaria-master\images\" + TXT_ID.Text)
+            End If
+        End If
+
+    End Sub
+
+    Private Sub TXT_ID_AUX_TextChanged(sender As Object, e As EventArgs) Handles TXT_ID_AUX.TextChanged
+        LST_PRODUCTOS_AUX.Items.Clear()
+        If TXT_ID_AUX.Text = "" Then
+            LST_PRODUCTOS_AUX.Visible = False
+        Else
+            BuscarCoincidencia(LST_PRODUCTOS, TXT_ID_AUX.Text, LST_PRODUCTOS_AUX, 1)
+            LST_PRODUCTOS_AUX.Visible = True
+        End If
+
+    End Sub
+
+    Private Function BuscarCoincidencia(lista_original As ListBox, texto As String, lista_copia As ListBox, NUM As Integer)
+        For Each item As String In lista_original.Items
+            If NUM = 1 Then
+                If item.Substring(0, 5).Contains(texto) Then 'ID
+                    lista_copia.Items.Add(item)
+                End If
+            ElseIf NUM = 2 Then
+                If item.Substring(6, 40).Contains(texto) Then 'NOMBRE
+                    lista_copia.Items.Add(item)
+                End If
+            ElseIf NUM = 3 Then
+                If item.Substring(47, 10).Contains(texto) Then 'PRECIO
+                    lista_copia.Items.Add(item)
+                End If
+            ElseIf NUM = 4 Then
+                If item.Substring(58, 9).Contains(texto) Then 'STOCK_REAL
+                    lista_copia.Items.Add(item)
+                End If
+            ElseIf NUM = 5 Then
+                If item.Substring(66, 9).Contains(texto) Then 'STOCK_CRITICO
+                    lista_copia.Items.Add(item)
+                End If
+            End If
+        Next
+        Return lista_copia
+    End Function
+
+    Private Sub TXT_NOMBRE_AUX_TextChanged(sender As Object, e As EventArgs) Handles TXT_NOMBRE_AUX.TextChanged
+        LST_PRODUCTOS_AUX.Items.Clear()
+        If TXT_NOMBRE_AUX.Text = "" Then
+            LST_PRODUCTOS_AUX.Visible = False
+        Else
+            BuscarCoincidencia(LST_PRODUCTOS, TXT_NOMBRE_AUX.Text, LST_PRODUCTOS_AUX, 2)
+            LST_PRODUCTOS_AUX.Visible = True
+        End If
+    End Sub
+
+    Private Sub TXT_PRECIO_AUX_TextChanged(sender As Object, e As EventArgs) Handles TXT_PRECIO_AUX.TextChanged
+        LST_PRODUCTOS_AUX.Items.Clear()
+        If TXT_PRECIO_AUX.Text = "" Then
+            LST_PRODUCTOS_AUX.Visible = False
+        Else
+            BuscarCoincidencia(LST_PRODUCTOS, TXT_PRECIO_AUX.Text, LST_PRODUCTOS_AUX, 3)
+            LST_PRODUCTOS_AUX.Visible = True
+        End If
+    End Sub
+
+    Private Sub TXT_REAL_AUX_TextChanged(sender As Object, e As EventArgs) Handles TXT_REAL_AUX.TextChanged
+        LST_PRODUCTOS_AUX.Items.Clear()
+        If TXT_REAL_AUX.Text = "" Then
+            LST_PRODUCTOS_AUX.Visible = False
+        Else
+            BuscarCoincidencia(LST_PRODUCTOS, TXT_REAL_AUX.Text, LST_PRODUCTOS_AUX, 4)
+            LST_PRODUCTOS_AUX.Visible = True
+        End If
+    End Sub
+
+    Private Sub TXT_CRITICO_AUX_TextChanged(sender As Object, e As EventArgs) Handles TXT_CRITICO_AUX.TextChanged
+        LST_PRODUCTOS_AUX.Items.Clear()
+        If TXT_CRITICO_AUX.Text = "" Then
+            LST_PRODUCTOS_AUX.Visible = False
+        Else
+            BuscarCoincidencia(LST_PRODUCTOS, TXT_CRITICO_AUX.Text, LST_PRODUCTOS_AUX, 5)
+            LST_PRODUCTOS_AUX.Visible = True
+        End If
     End Sub
 End Class

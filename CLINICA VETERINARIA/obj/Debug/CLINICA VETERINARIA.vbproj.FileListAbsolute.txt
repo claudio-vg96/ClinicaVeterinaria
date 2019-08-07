@@ -58,3 +58,15 @@ D:\ClinicaVeterinaria-master\CLINICA VETERINARIA\obj\Debug\CLINICA VETERINARIA.v
 D:\ClinicaVeterinaria-master\CLINICA VETERINARIA\obj\Debug\CLINICA VETERINARIA.exe
 D:\ClinicaVeterinaria-master\CLINICA VETERINARIA\obj\Debug\CLINICA VETERINARIA.xml
 D:\ClinicaVeterinaria-master\CLINICA VETERINARIA\obj\Debug\CLINICA VETERINARIA.pdb
+C:\Users\Claudio Villarroel G\Desktop\ClinicaVeterinaria-master-20190807T003343Z-001\ClinicaVeterinaria-master\CLINICA VETERINARIA\bin\Debug\CLINICA VETERINARIA.exe.config
+C:\Users\Claudio Villarroel G\Desktop\ClinicaVeterinaria-master-20190807T003343Z-001\ClinicaVeterinaria-master\CLINICA VETERINARIA\bin\Debug\CLINICA VETERINARIA.exe
+C:\Users\Claudio Villarroel G\Desktop\ClinicaVeterinaria-master-20190807T003343Z-001\ClinicaVeterinaria-master\CLINICA VETERINARIA\bin\Debug\CLINICA VETERINARIA.pdb
+C:\Users\Claudio Villarroel G\Desktop\ClinicaVeterinaria-master-20190807T003343Z-001\ClinicaVeterinaria-master\CLINICA VETERINARIA\bin\Debug\CLINICA VETERINARIA.xml
+C:\Users\Claudio Villarroel G\Desktop\ClinicaVeterinaria-master-20190807T003343Z-001\ClinicaVeterinaria-master\CLINICA VETERINARIA\obj\Debug\CLINICA VETERINARIA.vbprojAssemblyReference.cache
+C:\Users\Claudio Villarroel G\Desktop\ClinicaVeterinaria-master-20190807T003343Z-001\ClinicaVeterinaria-master\CLINICA VETERINARIA\obj\Debug\CLINICA_VETERINARIA.FRM_PRODUCTOS.resources
+C:\Users\Claudio Villarroel G\Desktop\ClinicaVeterinaria-master-20190807T003343Z-001\ClinicaVeterinaria-master\CLINICA VETERINARIA\obj\Debug\CLINICA_VETERINARIA.Resources.resources
+C:\Users\Claudio Villarroel G\Desktop\ClinicaVeterinaria-master-20190807T003343Z-001\ClinicaVeterinaria-master\CLINICA VETERINARIA\obj\Debug\CLINICA VETERINARIA.vbproj.GenerateResource.cache
+C:\Users\Claudio Villarroel G\Desktop\ClinicaVeterinaria-master-20190807T003343Z-001\ClinicaVeterinaria-master\CLINICA VETERINARIA\obj\Debug\CLINICA VETERINARIA.vbproj.CoreCompileInputs.cache
+C:\Users\Claudio Villarroel G\Desktop\ClinicaVeterinaria-master-20190807T003343Z-001\ClinicaVeterinaria-master\CLINICA VETERINARIA\obj\Debug\CLINICA VETERINARIA.exe
+C:\Users\Claudio Villarroel G\Desktop\ClinicaVeterinaria-master-20190807T003343Z-001\ClinicaVeterinaria-master\CLINICA VETERINARIA\obj\Debug\CLINICA VETERINARIA.xml
+C:\Users\Claudio Villarroel G\Desktop\ClinicaVeterinaria-master-20190807T003343Z-001\ClinicaVeterinaria-master\CLINICA VETERINARIA\obj\Debug\CLINICA VETERINARIA.pdb
