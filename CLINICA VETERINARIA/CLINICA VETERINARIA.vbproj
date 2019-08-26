@@ -124,5 +124,8 @@
   <ItemGroup>
     <None Include="Resources\Very-Basic-Binoculars-icon1.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\coincidencia1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

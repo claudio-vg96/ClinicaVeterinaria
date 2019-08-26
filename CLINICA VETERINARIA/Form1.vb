@@ -265,11 +265,11 @@ Public Class FRM_PRODUCTOS
     End Sub
 
     Private Sub CheckBox1_CheckedChanged_2(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
-        TXT_ID_AUX.Enabled = True
-        TXT_NOMBRE_AUX.Enabled = True
-        TXT_PRECIO_AUX.Enabled = True
-        TXT_REAL_AUX.Enabled = True
-        TXT_CRITICO_AUX.Enabled = True
+        If CheckBox1.Checked Then 'FILTRO
+            CheckBox1.Image = Image.FromFile("C:\Users\Claudio Villarroel G\Desktop\Clinica\ClinicaVeterinaria-master\images\embudo1.png")
+        Else 'BUSQUEDA
+            CheckBox1.Image = Image.FromFile("C:\Users\Claudio Villarroel G\Desktop\Clinica\ClinicaVeterinaria-master\images\binoculares1.png")
+        End If
         ''LST_PRODUCTOS_AUX.Location = New System.Drawing.Point(10, 10)
 
     End Sub
@@ -292,17 +292,51 @@ Public Class FRM_PRODUCTOS
     End Sub
 
     Private Sub TXT_ID_AUX_TextChanged(sender As Object, e As EventArgs) Handles TXT_ID_AUX.TextChanged
-        LST_PRODUCTOS_AUX.Items.Clear()
-        If TXT_ID_AUX.Text = "" Then
-            LST_PRODUCTOS_AUX.Visible = False
-        Else
-            BuscarCoincidencia(LST_PRODUCTOS, TXT_ID_AUX.Text, LST_PRODUCTOS_AUX, 1)
-            LST_PRODUCTOS_AUX.Visible = True
+        If CheckBox1.Checked Then 'FILTRO
+            If CheckBox2.Checked Then 'CONTENIDO
+                LST_PRODUCTOS_AUX.Items.Clear()
+                If TXT_ID_AUX.Text = "" Then
+                    LST_PRODUCTOS_AUX.Visible = False
+                Else
+                    FiltroContenido(LST_PRODUCTOS, TXT_ID_AUX.Text, LST_PRODUCTOS_AUX, 1)
+                    LST_PRODUCTOS_AUX.Visible = True
+                End If
+            Else 'COINCIDENCIA
+                LST_PRODUCTOS_AUX.Items.Clear()
+                If TXT_ID_AUX.Text = "" Then
+                    LST_PRODUCTOS_AUX.Visible = False
+                Else
+                    FiltroCoincidencia(LST_PRODUCTOS, TXT_ID_AUX.Text, LST_PRODUCTOS_AUX, 1)
+                    LST_PRODUCTOS_AUX.Visible = True
+                End If
+            End If
+        Else 'BUSQUEDA 
+            INDEX = 0
+            If CheckBox2.Checked Then 'CONTENIDO
+                For Each item As String In LST_PRODUCTOS.Items
+                    If Trim(item.Substring(0, 5)).Contains(TXT_ID_AUX.Text) Then
+                        If INDEX <> -1 Then
+                            LST_PRODUCTOS.SelectedIndex = INDEX
+                            Exit Sub
+                        End If
+                    End If
+                    INDEX = INDEX + 1
+                Next
+            Else 'COINCIDENCIA
+                For Each item As String In LST_PRODUCTOS.Items
+                    If Trim(item.Substring(0, Len(TXT_ID_AUX.Text))).Equals(TXT_ID_AUX.Text) Then
+                        If INDEX <> -1 Then
+                            LST_PRODUCTOS.SelectedIndex = INDEX
+                            Exit Sub
+                        End If
+                    End If
+                    INDEX = INDEX + 1
+                Next
+            End If
         End If
-
     End Sub
 
-    Private Function BuscarCoincidencia(lista_original As ListBox, texto As String, lista_copia As ListBox, NUM As Integer)
+    Private Function FiltroContenido(lista_original As ListBox, texto As String, lista_copia As ListBox, NUM As Integer)
         For Each item As String In lista_original.Items
             If NUM = 1 Then
                 If item.Substring(0, 5).Contains(texto) Then 'ID
@@ -329,43 +363,234 @@ Public Class FRM_PRODUCTOS
         Return lista_copia
     End Function
 
+    Private Function FiltroCoincidencia(lista_original As ListBox, texto As String, lista_copia As ListBox, NUM As Integer)
+        AUX = 0
+        For Each item As String In lista_original.Items
+            If NUM = 1 Then
+                If Trim(item.Substring(0, Len(texto))).Equals(texto) Then 'ID
+                    lista_copia.Items.Add(item)
+                End If
+            ElseIf NUM = 2 Then
+
+                If Trim(item.Substring(6, Len(texto))).Equals(texto) Then 'NOMBRE
+                    lista_copia.Items.Add(item)
+                End If
+            ElseIf NUM = 3 Then
+                campos = ExtraerDatos(LST_PRODUCTOS.Items.Item(AUX))
+                campos(2) = campos(2).replace(".", "")
+                campos(2) = campos(2).replace("$", "")
+                If campos(2).ToString.Substring(0, Len(texto)).Equals(texto) Then 'PRECIO
+                    lista_copia.Items.Add(item)
+                End If
+            ElseIf NUM = 4 Then
+                campos = ExtraerDatos(LST_PRODUCTOS.Items.Item(AUX))
+                If campos(3).ToString.Substring(0, Len(texto)).Equals(texto) Then 'STOCK_REAL
+                    lista_copia.Items.Add(item)
+                End If
+            ElseIf NUM = 5 Then
+                campos = ExtraerDatos(LST_PRODUCTOS.Items.Item(AUX))
+                If campos(4).ToString.Substring(0, Len(texto)).Equals(texto) Then 'STOCK_CRITICO
+                    lista_copia.Items.Add(item)
+                End If
+            End If
+            AUX = AUX + 1
+        Next
+        Return lista_copia
+    End Function
+
     Private Sub TXT_NOMBRE_AUX_TextChanged(sender As Object, e As EventArgs) Handles TXT_NOMBRE_AUX.TextChanged
-        LST_PRODUCTOS_AUX.Items.Clear()
-        If TXT_NOMBRE_AUX.Text = "" Then
-            LST_PRODUCTOS_AUX.Visible = False
-        Else
-            BuscarCoincidencia(LST_PRODUCTOS, TXT_NOMBRE_AUX.Text, LST_PRODUCTOS_AUX, 2)
-            LST_PRODUCTOS_AUX.Visible = True
+        If CheckBox1.Checked Then 'FILTRO
+            If CheckBox2.Checked Then 'CONTENIDO
+                LST_PRODUCTOS_AUX.Items.Clear()
+                If TXT_NOMBRE_AUX.Text = "" Then
+                    LST_PRODUCTOS_AUX.Visible = False
+                Else
+                    FiltroContenido(LST_PRODUCTOS, TXT_NOMBRE_AUX.Text, LST_PRODUCTOS_AUX, 2)
+                    LST_PRODUCTOS_AUX.Visible = True
+                End If
+            Else 'COINCIDENCIA
+                LST_PRODUCTOS_AUX.Items.Clear()
+                If TXT_NOMBRE_AUX.Text = "" Then
+                    LST_PRODUCTOS_AUX.Visible = False
+                Else
+                    FiltroCoincidencia(LST_PRODUCTOS, TXT_NOMBRE_AUX.Text, LST_PRODUCTOS_AUX, 2)
+                    LST_PRODUCTOS_AUX.Visible = True
+                End If
+            End If
+        Else 'BUSQUEDA 
+            INDEX = 0
+            If CheckBox2.Checked Then 'CONTENIDO
+                For Each item As String In LST_PRODUCTOS.Items
+                    If Trim(item.Substring(6, 40)).Contains(TXT_NOMBRE_AUX.Text) Then
+                        If INDEX <> -1 Then
+                            LST_PRODUCTOS.SelectedIndex = INDEX
+                            Exit Sub
+                        End If
+                    End If
+                    INDEX = INDEX + 1
+                Next
+            Else 'COINCIDENCIA
+                For Each item As String In LST_PRODUCTOS.Items
+                    If item.Substring(6, Len(TXT_NOMBRE_AUX.Text)).Equals(TXT_NOMBRE_AUX.Text) Then
+                        If INDEX <> -1 Then
+                            LST_PRODUCTOS.SelectedIndex = INDEX
+                            Exit Sub
+                        End If
+                    End If
+                    INDEX = INDEX + 1
+                Next
+            End If
         End If
     End Sub
 
     Private Sub TXT_PRECIO_AUX_TextChanged(sender As Object, e As EventArgs) Handles TXT_PRECIO_AUX.TextChanged
-        LST_PRODUCTOS_AUX.Items.Clear()
-        If TXT_PRECIO_AUX.Text = "" Then
-            LST_PRODUCTOS_AUX.Visible = False
-        Else
-            BuscarCoincidencia(LST_PRODUCTOS, TXT_PRECIO_AUX.Text, LST_PRODUCTOS_AUX, 3)
-            LST_PRODUCTOS_AUX.Visible = True
+        If CheckBox1.Checked Then 'FILTRO
+            If CheckBox2.Checked Then 'CONTENIDO
+                LST_PRODUCTOS_AUX.Items.Clear()
+                If TXT_PRECIO_AUX.Text = "" Then
+                    LST_PRODUCTOS_AUX.Visible = False
+                Else
+                    FiltroContenido(LST_PRODUCTOS, TXT_PRECIO_AUX.Text, LST_PRODUCTOS_AUX, 3)
+                    LST_PRODUCTOS_AUX.Visible = True
+                End If
+            Else 'COINCIDENCIA
+                LST_PRODUCTOS_AUX.Items.Clear()
+                If TXT_PRECIO_AUX.Text = "" Then
+                    LST_PRODUCTOS_AUX.Visible = False
+                Else
+                    FiltroCoincidencia(LST_PRODUCTOS, TXT_PRECIO_AUX.Text, LST_PRODUCTOS_AUX, 3)
+                    LST_PRODUCTOS_AUX.Visible = True
+                End If
+            End If
+        Else 'BUSQUEDA 
+            INDEX = 0
+            str1 = ""
+            If CheckBox2.Checked Then 'CONTENIDO
+                For Each item As String In LST_PRODUCTOS.Items
+                    campos = ExtraerDatos(LST_PRODUCTOS.Items.Item(INDEX))
+                    campos(2) = campos(2).replace(".", "")
+                    campos(2) = campos(2).replace("$", "")
+                    If campos(2).Contains(TXT_PRECIO_AUX.Text) Then
+                        If INDEX <> -1 Then
+                            LST_PRODUCTOS.SelectedIndex = INDEX
+                            Exit Sub
+                        End If
+                    End If
+                    INDEX = INDEX + 1
+                Next
+            Else 'COINCIDENCIA
+                For Each item As String In LST_PRODUCTOS.Items
+                    campos = ExtraerDatos(LST_PRODUCTOS.Items.Item(INDEX))
+                    campos(2) = campos(2).replace(".", "")
+                    If campos(2).ToString.Substring(1, Len(TXT_PRECIO_AUX.Text)).Equals(TXT_PRECIO_AUX.Text) Then
+                        If INDEX <> -1 Then
+                            LST_PRODUCTOS.SelectedIndex = INDEX
+                            Exit Sub
+                        End If
+                    End If
+                    INDEX = INDEX + 1
+                Next
+            End If
         End If
     End Sub
 
     Private Sub TXT_REAL_AUX_TextChanged(sender As Object, e As EventArgs) Handles TXT_REAL_AUX.TextChanged
-        LST_PRODUCTOS_AUX.Items.Clear()
-        If TXT_REAL_AUX.Text = "" Then
-            LST_PRODUCTOS_AUX.Visible = False
-        Else
-            BuscarCoincidencia(LST_PRODUCTOS, TXT_REAL_AUX.Text, LST_PRODUCTOS_AUX, 4)
-            LST_PRODUCTOS_AUX.Visible = True
+        If CheckBox1.Checked Then 'FILTRO
+            If CheckBox2.Checked Then 'CONTENIDO
+                LST_PRODUCTOS_AUX.Items.Clear()
+                If TXT_REAL_AUX.Text = "" Then
+                    LST_PRODUCTOS_AUX.Visible = False
+                Else
+                    FiltroContenido(LST_PRODUCTOS, TXT_REAL_AUX.Text, LST_PRODUCTOS_AUX, 4)
+                    LST_PRODUCTOS_AUX.Visible = True
+                End If
+            Else 'COINCIDENCIA
+                LST_PRODUCTOS_AUX.Items.Clear()
+                If TXT_REAL_AUX.Text = "" Then
+                    LST_PRODUCTOS_AUX.Visible = False
+                Else
+                    FiltroCoincidencia(LST_PRODUCTOS, TXT_REAL_AUX.Text, LST_PRODUCTOS_AUX, 4)
+                    LST_PRODUCTOS_AUX.Visible = True
+                End If
+            End If
+        Else 'BUSQUEDA 
+            INDEX = 0
+            If CheckBox2.Checked Then 'CONTENIDO
+                For Each item As String In LST_PRODUCTOS.Items
+                    If Trim(item.Substring(58, 9)).Contains(TXT_REAL_AUX.Text) Then
+                        If INDEX <> -1 Then
+                            LST_PRODUCTOS.SelectedIndex = INDEX
+                            Exit Sub
+                        End If
+                    End If
+                    INDEX = INDEX + 1
+                Next
+            Else 'COINCIDENCIA
+                For Each item As String In LST_PRODUCTOS.Items
+                    campos = ExtraerDatos(LST_PRODUCTOS.Items.Item(INDEX))
+                    If campos(3).ToString.Substring(0, Len(TXT_REAL_AUX.Text)).Equals(TXT_REAL_AUX.Text) Then
+                        If INDEX <> -1 Then
+                            LST_PRODUCTOS.SelectedIndex = INDEX
+                            Exit Sub
+                        End If
+                    End If
+                    INDEX = INDEX + 1
+                Next
+            End If
         End If
     End Sub
 
     Private Sub TXT_CRITICO_AUX_TextChanged(sender As Object, e As EventArgs) Handles TXT_CRITICO_AUX.TextChanged
-        LST_PRODUCTOS_AUX.Items.Clear()
-        If TXT_CRITICO_AUX.Text = "" Then
-            LST_PRODUCTOS_AUX.Visible = False
-        Else
-            BuscarCoincidencia(LST_PRODUCTOS, TXT_CRITICO_AUX.Text, LST_PRODUCTOS_AUX, 5)
-            LST_PRODUCTOS_AUX.Visible = True
+        If CheckBox1.Checked Then 'FILTRO
+            If CheckBox2.Checked Then 'CONTENIDO
+                LST_PRODUCTOS_AUX.Items.Clear()
+                If TXT_CRITICO_AUX.Text = "" Then
+                    LST_PRODUCTOS_AUX.Visible = False
+                Else
+                    FiltroContenido(LST_PRODUCTOS, TXT_CRITICO_AUX.Text, LST_PRODUCTOS_AUX, 5)
+                    LST_PRODUCTOS_AUX.Visible = True
+                End If
+            Else 'COINCIDENCIA
+                LST_PRODUCTOS_AUX.Items.Clear()
+                If TXT_CRITICO_AUX.Text = "" Then
+                    LST_PRODUCTOS_AUX.Visible = False
+                Else
+                    FiltroCoincidencia(LST_PRODUCTOS, TXT_CRITICO_AUX.Text, LST_PRODUCTOS_AUX, 5)
+                    LST_PRODUCTOS_AUX.Visible = True
+                End If
+            End If
+        Else 'BUSQUEDA 
+            INDEX = 0
+            If CheckBox2.Checked Then 'CONTENIDO
+                For Each item As String In LST_PRODUCTOS.Items
+                    If Trim(item.Substring(66, 9)).Contains(TXT_CRITICO_AUX.Text) Then
+                        If INDEX <> -1 Then
+                            LST_PRODUCTOS.SelectedIndex = INDEX
+                            Exit Sub
+                        End If
+                    End If
+                    INDEX = INDEX + 1
+                Next
+            Else 'COINCIDENCIA
+                For Each item As String In LST_PRODUCTOS.Items
+                    campos = ExtraerDatos(LST_PRODUCTOS.Items.Item(INDEX))
+                    If campos(4).ToString.Substring(0, Len(TXT_CRITICO_AUX.Text)).Equals(TXT_CRITICO_AUX.Text) Then
+                        If INDEX <> -1 Then
+                            LST_PRODUCTOS.SelectedIndex = INDEX
+                            Exit Sub
+                        End If
+                    End If
+                    INDEX = INDEX + 1
+                Next
+            End If
+        End If
+    End Sub
+
+    Private Sub CheckBox2_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox2.CheckedChanged
+        If CheckBox2.Checked Then 'CONTENIDO
+            CheckBox2.Image = Image.FromFile("C:\Users\Claudio Villarroel G\Desktop\Clinica\ClinicaVeterinaria-master\images\contenido1.png")
+        Else 'COINCIDENCIA
+            CheckBox2.Image = Image.FromFile("C:\Users\Claudio Villarroel G\Desktop\Clinica\ClinicaVeterinaria-master\images\coincidencia1.png")
         End If
     End Sub
 End Class

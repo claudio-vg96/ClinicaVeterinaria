@@ -54,6 +54,7 @@ Partial Class FRM_PRODUCTOS
         Me.TXT_REAL_AUX = New System.Windows.Forms.TextBox()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.LST_PRODUCTOS_AUX = New System.Windows.Forms.ListBox()
+        Me.CheckBox2 = New System.Windows.Forms.CheckBox()
         Me.GroupBox1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NUM_STOCK_CRITICO, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -68,7 +69,7 @@ Partial Class FRM_PRODUCTOS
         Me.LST_PRODUCTOS.Location = New System.Drawing.Point(43, 32)
         Me.LST_PRODUCTOS.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.LST_PRODUCTOS.Name = "LST_PRODUCTOS"
-        Me.LST_PRODUCTOS.Size = New System.Drawing.Size(721, 213)
+        Me.LST_PRODUCTOS.Size = New System.Drawing.Size(721, 194)
         Me.LST_PRODUCTOS.TabIndex = 0
         '
         'GroupBox1
@@ -270,7 +271,6 @@ Partial Class FRM_PRODUCTOS
         '
         'TXT_ID_AUX
         '
-        Me.TXT_ID_AUX.Enabled = False
         Me.TXT_ID_AUX.Location = New System.Drawing.Point(43, 266)
         Me.TXT_ID_AUX.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TXT_ID_AUX.MaxLength = 5
@@ -280,16 +280,15 @@ Partial Class FRM_PRODUCTOS
         '
         'TXT_NOMBRE_AUX
         '
-        Me.TXT_NOMBRE_AUX.Enabled = False
         Me.TXT_NOMBRE_AUX.Location = New System.Drawing.Point(93, 266)
         Me.TXT_NOMBRE_AUX.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TXT_NOMBRE_AUX.MaxLength = 40
         Me.TXT_NOMBRE_AUX.Name = "TXT_NOMBRE_AUX"
         Me.TXT_NOMBRE_AUX.Size = New System.Drawing.Size(381, 22)
         Me.TXT_NOMBRE_AUX.TabIndex = 12
         '
         'TXT_PRECIO_AUX
         '
-        Me.TXT_PRECIO_AUX.Enabled = False
         Me.TXT_PRECIO_AUX.Location = New System.Drawing.Point(488, 266)
         Me.TXT_PRECIO_AUX.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TXT_PRECIO_AUX.MaxLength = 9
@@ -371,7 +370,6 @@ Partial Class FRM_PRODUCTOS
         '
         'TXT_CRITICO_AUX
         '
-        Me.TXT_CRITICO_AUX.Enabled = False
         Me.TXT_CRITICO_AUX.Location = New System.Drawing.Point(683, 266)
         Me.TXT_CRITICO_AUX.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TXT_CRITICO_AUX.MaxLength = 3
@@ -381,7 +379,6 @@ Partial Class FRM_PRODUCTOS
         '
         'TXT_REAL_AUX
         '
-        Me.TXT_REAL_AUX.Enabled = False
         Me.TXT_REAL_AUX.Location = New System.Drawing.Point(603, 266)
         Me.TXT_REAL_AUX.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TXT_REAL_AUX.MaxLength = 3
@@ -394,12 +391,12 @@ Partial Class FRM_PRODUCTOS
         Me.CheckBox1.Appearance = System.Windows.Forms.Appearance.Button
         Me.CheckBox1.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter
         Me.CheckBox1.Image = Global.CLINICA_VETERINARIA.My.Resources.Resources.Very_Basic_Binoculars_icon1
-        Me.CheckBox1.Location = New System.Drawing.Point(773, 234)
+        Me.CheckBox1.Location = New System.Drawing.Point(773, 177)
         Me.CheckBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(27, 25)
+        Me.CheckBox1.Size = New System.Drawing.Size(40, 30)
         Me.CheckBox1.TabIndex = 24
-        Me.CheckBox1.Text = "CheckBox1"
+        Me.CheckBox1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.CheckBox1.UseVisualStyleBackColor = True
         '
         'LST_PRODUCTOS_AUX
@@ -410,15 +407,27 @@ Partial Class FRM_PRODUCTOS
         Me.LST_PRODUCTOS_AUX.Location = New System.Drawing.Point(43, 32)
         Me.LST_PRODUCTOS_AUX.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.LST_PRODUCTOS_AUX.Name = "LST_PRODUCTOS_AUX"
-        Me.LST_PRODUCTOS_AUX.Size = New System.Drawing.Size(721, 213)
+        Me.LST_PRODUCTOS_AUX.Size = New System.Drawing.Size(721, 194)
         Me.LST_PRODUCTOS_AUX.TabIndex = 25
         Me.LST_PRODUCTOS_AUX.Visible = False
+        '
+        'CheckBox2
+        '
+        Me.CheckBox2.Appearance = System.Windows.Forms.Appearance.Button
+        Me.CheckBox2.Image = Global.CLINICA_VETERINARIA.My.Resources.Resources.coincidencia1
+        Me.CheckBox2.Location = New System.Drawing.Point(773, 214)
+        Me.CheckBox2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.CheckBox2.Name = "CheckBox2"
+        Me.CheckBox2.Size = New System.Drawing.Size(40, 37)
+        Me.CheckBox2.TabIndex = 26
+        Me.CheckBox2.UseVisualStyleBackColor = True
         '
         'FRM_PRODUCTOS
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(805, 703)
+        Me.ClientSize = New System.Drawing.Size(855, 703)
+        Me.Controls.Add(Me.CheckBox2)
         Me.Controls.Add(Me.LST_PRODUCTOS_AUX)
         Me.Controls.Add(Me.CheckBox1)
         Me.Controls.Add(Me.TXT_REAL_AUX)
@@ -487,4 +496,5 @@ Partial Class FRM_PRODUCTOS
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents CheckBox1 As CheckBox
     Friend WithEvents LST_PRODUCTOS_AUX As ListBox
+    Friend WithEvents CheckBox2 As CheckBox
 End Class
